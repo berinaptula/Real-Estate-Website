@@ -11,7 +11,13 @@
 
 <body>
     <h1>Connected</h1>
-    <form class="form">
+    <form class="search">
+        <div class="propertySearch">
+            <label for="search">Search</label>
+            <input type="text" id="search" name="search" placeholder="Search for Address or PostCode">
+        </div>
+    </form>
+    <form class="filters">
         <div class="propertyType">
             <h3>Property type</h3>
             <input type="radio" id="type-all" class='radio' name="type" value="type-all" checked>
@@ -48,8 +54,6 @@
             <label for="dat-10">10 days</label>
             <input type="radio" id="day-30" class='radio' name="days" value="30">
             <label for="day-30">30 days</label>
-            <input type="radio" id="day-30more" class='radio' name="days" value="31">
-            <label for="day-30more">30+ days</label>
         </div>
         <div class="propertyFloorArea">
             <h3>Floor area</h3>
@@ -70,16 +74,16 @@
             <h3>Plot area</h3>
             <input type="radio" id="plot-all" class='radio' name="plot-area" value="plot-all" checked>
             <label for="plot-all">All</label>
-            <input type="radio" id="plot-50m2" class='radio' name="plot-area" value="250">
+            <input type="radio" id="plot-250m2" class='radio' name="plot-area" value="250">
             <label for="plot-250m2">250+ m2</label>
-            <input type="radio" id="plot-75m2" class='radio' name="plot-area" value="500">
+            <input type="radio" id="plot-500m2" class='radio' name="plot-area" value="500">
             <label for="plot-500m2">500+ m2</label>
             <input type="radio" id="plot-1000m2" class='radio' name="plot-area" value="1000">
-            <label for="plot-1000m2">100+ m2</label>
+            <label for="plot-1000m2">1000+ m2</label>
             <input type="radio" id="plot-2500m2" class='radio' name="plot-area" value="2500">
-            <label for="plot-2500m2">150+ m2</label>
+            <label for="plot-2500m2">2500+ m2</label>
             <input type="radio" id="plot-5000m2" class='radio' name="plot-area" value="5000">
-            <label for="plot-5000m2">250+ m2</label>
+            <label for="plot-5000m2">5000+ m2</label>
         </div>
         <div class="exteriorSpace">
             <h3>Exterior space</h3>
@@ -87,21 +91,22 @@
             <label for="balcony">Balcony</label>
             <input type="checkbox" id="roof-terrace" value="roof-terrace">
             <label for="roof-terrace">Roof Terrace</label>
-            <input type="checkbox" id="garde " value="garden">
+            <input type="checkbox" id="garden" value="garden">
             <label for="garden">Garden</label>
         </div>
         <div class="propertyPlotArea">
             <h3>Type of construction</h3>
-            <input type="radio" id="all-construction" class='radio' name="all-construction" value="all" checked>
+            <input type="radio" id="all-construction" class='radio' name="construction" value="all" checked>
             <label for="all-construction">All</label>
-            <input type="radio" id="new-construction" class='radio' name="new-construction" value="new">
+            <input type="radio" id="new-construction" class='radio' name="construction" value="new">
             <label for="new-construction">New construction</label>
-            <input type="radio" id="resale-construction" class='radio' name="resale-construction" value="resale">
+            <input type="radio" id="resale-construction" class='radio' name="construction" value="resale">
             <label for="resale-construction">Resale construction</label>
         </div>
     </form>
     <div class="container">
     </div>
+    <script src="ads.js"></script>
     <script src="script.js"></script>
 </body>
 
