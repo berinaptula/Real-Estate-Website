@@ -1,7 +1,7 @@
 const adsArr = [{
         type: 'apartment',
         price: 318000,
-        adress: "Zilvermeeuw 5",
+        adress: "Zilvermeeuw 5111111111111",
         published: '',
         city: 'Hoogvliet Rotterdam',
         postcode: '3192 PD',
@@ -9,10 +9,10 @@ const adsArr = [{
         plotArea: 108,
         rooms: 5,
         photo: 'media/img/ad1.jpg',
-        type: 'new',
-        garden: false,
-        roofTerrace: false,
-        garden: false
+        constructionType: 'new',
+        balcony: true,
+        roofTerrace: true,
+        garden: true
     },
     {
         type: 'apartment',
@@ -22,13 +22,13 @@ const adsArr = [{
         city: 'The Hague',
         postcode: '2542 ER',
         floorArea: 116,
-        plotArea: 73,
+        plotArea: 4073,
         rooms: 5,
         photo: 'media/img/ad2.jpg',
-        type: 'new',
-        garden: false,
+        constructionType: 'new',
+        balcony: true,
         roofTerrace: false,
-        garden: false
+        garden: true
     },
     {
         type: 'house',
@@ -41,9 +41,9 @@ const adsArr = [{
         plotArea: 238,
         rooms: 4,
         photo: 'media/img/ad3.jpg',
-        type: 'new',
-        garden: false,
-        roofTerrace: false,
+        constructionType: 'resale',
+        balcony: true,
+        roofTerrace: true,
         garden: false
     },
     {
@@ -57,8 +57,8 @@ const adsArr = [{
         plotArea: 177,
         rooms: 5,
         photo: 'media/img/ad4.jpg',
-        type: 'new',
-        garden: false,
+        constructionType: 'new',
+        balcony: false,
         roofTerrace: false,
         garden: false
     },
@@ -73,8 +73,8 @@ const adsArr = [{
         plotArea: 160,
         rooms: 3,
         photo: 'media/img/ad5.jpg',
-        type: 'new',
-        garden: false,
+        constructionType: 'resale',
+        balcony: false,
         roofTerrace: false,
         garden: false
     },
@@ -89,8 +89,8 @@ const adsArr = [{
         plotArea: null,
         rooms: 4,
         photo: 'media/img/ad6.jpg',
-        type: 'new',
-        garden: false,
+        constructionType: 'new',
+        balcony: false,
         roofTerrace: false,
         garden: false
     },
@@ -105,15 +105,15 @@ const adsArr = [{
         plotArea: null,
         rooms: 4,
         photo: 'media/img/ad7.jpg',
-        type: 'new',
-        garden: false,
+        constructionType: 'resale',
+        balcony: false,
         roofTerrace: false,
         garden: false
     },
     {
         type: 'apartment',
         price: 259000,
-        adress: "Drinkwaterweg 425",
+        adress: "Drinkwaterweg 425XDDDDDD",
         published: '',
         city: 'Rotterdam',
         postcode: '3063 VD',
@@ -121,10 +121,10 @@ const adsArr = [{
         plotArea: null,
         rooms: 3,
         photo: 'media/img/ad8.jpg',
-        type: 'new',
-        garden: false,
-        roofTerrace: false,
-        garden: false
+        constructionType: 'new',
+        balcony: true,
+        roofTerrace: true,
+        garden: true
     },
     {
         type: 'apartment',
@@ -137,15 +137,15 @@ const adsArr = [{
         plotArea: null,
         rooms: 4,
         photo: 'media/img/ad9.jpg',
-        type: 'new',
-        garden: false,
-        roofTerrace: false,
+        constructionType: 'new',
+        balcony: false,
+        roofTerrace: true,
         garden: false
     },
     {
         type: 'apartment',
         price: 685000,
-        adress: "Coolhaven 253",
+        adress: "Coolhaven 253 Garden n balcony",
         published: '',
         city: 'Rotterdam',
         postcode: '3011 WH',
@@ -153,10 +153,10 @@ const adsArr = [{
         plotArea: null,
         rooms: 4,
         photo: 'media/img/ad10.jpg',
-        type: 'new',
-        garden: false,
+        constructionType: 'new',
+        balcony: true,
         roofTerrace: false,
-        garden: false
+        garden: true
     },
 
 ]
