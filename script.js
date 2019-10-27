@@ -2,18 +2,15 @@
 var filters = {
     type: 'all',
     price: 0,
-    priceMax: 900000,
+    priceMax: 99999999,
     adress: '',
-    published: '',
+    published: null,
     city: '',
     postcode: '',
-    floorArea: 0,
-    plotArea: 0,
+    floorArea: 999999999,
+    plotArea: 999999999,
     rooms: 99999999,
-    constructionType: 'new',
-    // balcony: false,
-    // garden: false,
-    // roofTerrace: false
+    constructionType: 'all',
 };
 var checkFilters = {
     balcony: false,
@@ -25,7 +22,6 @@ var checkFilters = {
 const filterAds = () => {
     const priceFilter = adsArr.filter(function (item) {
         if (filters.price <= item.price && filters.priceMax >= item.price) {
-            console.log(item.garden)
             return true;
         }
     });
@@ -53,13 +49,19 @@ const filterAds = () => {
         }
     })
 
-    // const daysSincePublishedFilter = roomsFilter.filter((item) => {
-    //     if (item) {
-    //         return true
-    //     }
-    // })
 
-    const floorAreaFilter = roomsFilter.filter((item) => {
+    const daysSincePublishedFilter = roomsFilter.filter((item) => {
+        var x = new moment()
+        var inDays = moment.duration(x.diff(item.published)).asDays();
+        var inDaysInt = parseInt(inDays);
+        if (filters.published === null) {
+            return true
+        } else if (filters.published >= inDaysInt) {
+            return true
+        }
+    })
+
+    const floorAreaFilter = daysSincePublishedFilter.filter((item) => {
         if (filters.floorArea > 999999) {
             return true
         } else if (filters.floorArea <= item.floorArea) {
@@ -75,6 +77,9 @@ const filterAds = () => {
         }
     })
 
+
+    // This was a StackOverflow answer which I have to do little bit of research to refactor my old code
+    // Seems like an easier way to filter things based on the multiple checkboxes checked!
     const wanted = Object.keys(checkFilters).filter(k => checkFilters[k]); // ['garden', 'roofTerrace']
     const checkboxFilter = plotAreaFilter.filter(item => wanted.every(k => item[k]));
 
@@ -90,35 +95,19 @@ const filterAds = () => {
     return finalResult;
 };
 
-// Render the DOM from the ads array (ads.js)
-const renderAds = (adsArray) => {
-    adsArray.forEach((element) => {
-        const container = document.querySelector('.container');
-        const ad = document.createElement('div');
-        ad.className = 'obqva';
-
-        let adress = document.createElement('h3');
-        let price = document.createElement('p');
-        let city = document.createElement('p');
-        let postcode = document.createElement('p');
-        let published = document.createElement('p');
-        let img = document.createElement('img');
-
-        adress.textContent = element.adress;
-        price.textContent = element.price;
-        city.textContent = element.city;
-        postcode.textContent = element.postcode;
-        published.textContent = element.published;
-        img.src = element.photo;
-
-        ad.append(adress, price, city, postcode, published, img);
-        container.appendChild(ad);
-    });
-};
-renderAds(filterAds());
 
 //
 const setFilters = (e) => {
+    // Filter the minimum and maximum price
+    let minPrice = document.querySelector('.min-price').value;
+    let maxPrice = document.querySelector('.max-price').value;
+    filters.price = minPrice;
+    filters.priceMax = maxPrice;
+
+    if (minPrice > maxPrice) {
+        document.querySelector('.max-price').value = minPrice
+    }
+
     // Filter for House or Apartment
     if (document.getElementById('type-all').checked) {
         filters.type = 'all';
@@ -220,6 +209,8 @@ const setFilters = (e) => {
         filters.constructionType = 'resale';
     }
 };
+console.log(filters);
+
 
 const emptyDom = () => {
     const container = document.querySelector('.container');
@@ -234,6 +225,14 @@ form.addEventListener('click', (e) => {
     renderAds(filterAds());
 });
 
+const propertyPrice = document.querySelector('.propertyPrice');
+propertyPrice.addEventListener('change', (e) => {
+    emptyDom();
+    setFilters(e);
+    console.log(filters);
+    filterAds();
+    renderAds(filterAds());
+})
 const searchQuery = document.querySelector('#search');
 searchQuery.addEventListener('input', (e) => {
     filters.city = e.target.value;
@@ -245,3 +244,40 @@ searchQuery.addEventListener('input', (e) => {
     filterAds();
     renderAds(filterAds());
 });
+// Render the DOM from the ads array (ads.js)
+const renderAds = (adsArray) => {
+    adsArray.forEach((element) => {
+        const container = document.querySelector('.container');
+        const ad = document.createElement('div');
+        ad.className = 'obqva';
+
+        let adress = document.createElement('h3');
+        let price = document.createElement('p');
+        let city = document.createElement('p');
+        let postcode = document.createElement('p');
+        let published = document.createElement('p');
+        let img = document.createElement('img');
+
+        adress.textContent = element.adress;
+        price.textContent = element.price;
+        city.textContent = element.city;
+        postcode.textContent = element.postcode;
+
+        let whenIsPublished = element.published.fromNow();
+        var x = new moment()
+        var inDays = moment.duration(x.diff(element.published)).asDays();
+        var inDaysInt = parseInt(inDays);
+        console.log(inDaysInt)
+        if (inDaysInt >= 1) {
+            published.textContent = whenIsPublished;
+        }
+        if (inDaysInt < 1) {
+            published.textContent = "Today"
+        }
+        img.src = element.photo;
+
+        ad.append(adress, price, city, postcode, published, img);
+        container.appendChild(ad);
+    });
+};
+renderAds(filterAds());
