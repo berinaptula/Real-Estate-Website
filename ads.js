@@ -12,13 +12,15 @@ const adsArr = [{
         constructionType: 'new',
         balcony: true,
         roofTerrace: true,
-        garden: true
+        garden: true,
+        id: 'ad1',
+        gallery: ['media/img/ad1.jpg', 'media/img/ad2.jpg', 'media/img/ad3.jpg']
     },
     {
         type: 'apartment',
         price: 269000,
         adress: "Goudslagersgaarde 18",
-        published: moment(),
+        published: moment().subtract(4, 'hours'),
         city: 'The Hague',
         postcode: '2542 ER',
         floorArea: 116,
@@ -28,7 +30,8 @@ const adsArr = [{
         constructionType: 'new',
         balcony: true,
         roofTerrace: false,
-        garden: true
+        garden: true,
+        id: 'ad2'
     },
     {
         type: 'house',
@@ -44,7 +47,8 @@ const adsArr = [{
         constructionType: 'resale',
         balcony: true,
         roofTerrace: true,
-        garden: false
+        garden: false,
+        id: 'ad3'
     },
     {
         type: 'house',
@@ -60,7 +64,8 @@ const adsArr = [{
         constructionType: 'new',
         balcony: false,
         roofTerrace: false,
-        garden: false
+        garden: false,
+        id: 'ad4'
     },
     {
         type: 'house',
@@ -76,7 +81,8 @@ const adsArr = [{
         constructionType: 'resale',
         balcony: false,
         roofTerrace: false,
-        garden: false
+        garden: false,
+        id: 'ad5'
     },
     {
         type: 'apartment',
@@ -92,7 +98,8 @@ const adsArr = [{
         constructionType: 'new',
         balcony: false,
         roofTerrace: false,
-        garden: false
+        garden: false,
+        id: 'ad6'
     },
     {
         type: 'apartment',
@@ -108,7 +115,8 @@ const adsArr = [{
         constructionType: 'resale',
         balcony: false,
         roofTerrace: false,
-        garden: false
+        garden: false,
+        id: 'ad7'
     },
     {
         type: 'apartment',
@@ -124,7 +132,8 @@ const adsArr = [{
         constructionType: 'new',
         balcony: true,
         roofTerrace: true,
-        garden: true
+        garden: true,
+        id: 'ad8'
     },
     {
         type: 'apartment',
@@ -140,7 +149,8 @@ const adsArr = [{
         constructionType: 'new',
         balcony: false,
         roofTerrace: true,
-        garden: false
+        garden: false,
+        id: 'ad9'
     },
     {
         type: 'apartment',
@@ -156,7 +166,8 @@ const adsArr = [{
         constructionType: 'new',
         balcony: true,
         roofTerrace: false,
-        garden: true
+        garden: true,
+        id: 'ad10'
     },
 
 ]

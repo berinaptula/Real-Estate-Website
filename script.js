@@ -41,7 +41,6 @@ const filterAds = () => {
     })
 
     const roomsFilter = typeFilter.filter((item) => {
-        // console.log(filters.rooms, " >= ", item.rooms)
         if (filters.rooms > 6) {
             return true
         } else if (filters.rooms === item.rooms) {
@@ -211,73 +210,206 @@ const setFilters = (e) => {
 };
 console.log(filters);
 
+const sortResults = (filtered) => {
+    let sortBy = document.querySelector('.sortBy').value;
+    console.log(sortBy)
+    if (sortBy === 'newest') {
+        return filtered.sort((a, b) => {
+            if (a.published.valueOf() > b.published.valueOf()) {
+                return -1
+            } else if (a.published.valueOf() < b.published.valueOf()) {
+                return 1
+            } else {
+                return 0
+            }
+        })
+    } else if (sortBy === 'oldest') {
+        console.log(sortBy)
+        return filtered.sort((a, b) => {
+            if (a.published.valueOf() < b.published.valueOf()) {
+                return -1
+            } else if (a.published.valueOf() > b.published.valueOf()) {
+                return 1
+            } else {
+                return 0
+            }
+        })
+    } else if (sortBy === 'price-lowest') {
+        console.log(sortBy)
+        return filtered.sort((a, b) => {
+            if (a.price < b.price) {
+                return -1
+            } else if (a.price > b.price) {
+                return 1
+            } else {
+                return 0
+            }
+        })
+    } else if (sortBy === 'price-highest') {
+        console.log(sortBy)
+        return filtered.sort((a, b) => {
+            if (a.price > b.price) {
+                return -1
+            } else if (a.price < b.price) {
+                return 1
+            } else {
+                return 0
+            }
+        })
+    } else if (sortBy === 'rooms-lowest') {
+        console.log(sortBy)
+        return filtered.sort((a, b) => {
+            if (a.rooms < b.rooms) {
+                return -1
+            } else if (a.rooms > b.rooms) {
+                return 1
+            } else {
+                return 0
+            }
+        })
+    } else if (sortBy === 'rooms-highest') {
+        console.log(sortBy)
+        return filtered.sort((a, b) => {
+            if (a.rooms > b.rooms) {
+                return -1
+            } else if (a.rooms < b.rooms) {
+                return 1
+            } else {
+                return 0
+            }
+        })
+    } else if (sortBy === 'floor-lowest') {
+        console.log(sortBy)
+        return filtered.sort((a, b) => {
+            if (a.floorArea < b.floorArea) {
+                return -1
+            } else if (a.floorArea > b.floorArea) {
+                return 1
+            } else {
+                return 0
+            }
+        })
+    } else if (sortBy === 'floor-highest') {
+        console.log(sortBy)
+        return filtered.sort((a, b) => {
+            if (a.floorArea > b.floorArea) {
+                return -1
+            } else if (a.floorArea < b.floorArea) {
+                return 1
+            } else {
+                return 0
+            }
+        })
+    } else {
+        return filtered
+    }
+
+}
+sortResults(filterAds())
+
 
 const emptyDom = () => {
     const container = document.querySelector('.container');
     container.innerHTML = '';
 };
-const form = document.querySelector('.filters');
-form.addEventListener('click', (e) => {
+const reRenderDOM = (e) => {
     emptyDom();
     setFilters(e);
     console.log(filters);
     filterAds();
-    renderAds(filterAds());
+    let sorted = sortResults(filterAds())
+    renderAds(sorted);
+}
+
+const form = document.querySelector('.filters');
+form.addEventListener('click', (e) => {
+    reRenderDOM();
 });
 
 const propertyPrice = document.querySelector('.propertyPrice');
 propertyPrice.addEventListener('change', (e) => {
-    emptyDom();
-    setFilters(e);
-    console.log(filters);
-    filterAds();
-    renderAds(filterAds());
+    reRenderDOM();
 })
 const searchQuery = document.querySelector('#search');
 searchQuery.addEventListener('input', (e) => {
     filters.city = e.target.value;
     filters.adress = e.target.value;
     filters.postcode = e.target.value;
-    console.log(filters);
-    emptyDom();
-    setFilters(e);
-    filterAds();
-    renderAds(filterAds());
+    reRenderDOM();
 });
+
+const sortChangeListener = document.querySelector('.sortBy')
+sortChangeListener.addEventListener('change', () => {
+    reRenderDOM();
+})
+
 // Render the DOM from the ads array (ads.js)
 const renderAds = (adsArray) => {
     adsArray.forEach((element) => {
         const container = document.querySelector('.container');
         const ad = document.createElement('div');
         ad.className = 'obqva';
-
-        let adress = document.createElement('h3');
-        let price = document.createElement('p');
-        let city = document.createElement('p');
-        let postcode = document.createElement('p');
-        let published = document.createElement('p');
-        let img = document.createElement('img');
-
-        adress.textContent = element.adress;
-        price.textContent = element.price;
-        city.textContent = element.city;
-        postcode.textContent = element.postcode;
+        ad.id = element.id
 
         let whenIsPublished = element.published.fromNow();
         var x = new moment()
         var inDays = moment.duration(x.diff(element.published)).asDays();
         var inDaysInt = parseInt(inDays);
+        var published = '';
+
+        var viewButton = document.createElement('button');
+        viewButton.id = element.id;
+        viewButton.textContent = 'View Ad'
+        viewButton.addEventListener('click', (e) => {
+            let id = e.target.parentNode.id
+            location.assign(`/ad.html#${id}`)
+        })
         console.log(inDaysInt)
         if (inDaysInt >= 1) {
-            published.textContent = whenIsPublished;
+            published = whenIsPublished;
         }
         if (inDaysInt < 1) {
-            published.textContent = "Today"
+            published = "Today"
         }
-        img.src = element.photo;
-
-        ad.append(adress, price, city, postcode, published, img);
-        container.appendChild(ad);
+        if (element.plotArea === null) {
+            element.plotArea = "Not specificed for this type of property"
+        }
+        let hasBalcony = '';
+        let hasRoofTerrace = '';
+        let hasGarden = '';
+        if (element.balcony) {
+            hasBalcony = 'Yes'
+        } else {
+            hasBalcony = 'No'
+        }
+        if (element.roofTerrace) {
+            hasRoofTerrace = 'Yes'
+        } else {
+            hasRoofTerrace = 'No'
+        }
+        if (element.garden) {
+            hasGarden = 'Yes'
+        } else {
+            hasGarden = "No"
+        }
+        ad.innerHTML =
+            ` <h3>${element.adress}</h3>
+                <p>Price : $${element.price}</p>
+                <p>City : ${element.city}</p>
+                <p>Postcode : ${element.postcode}</p>
+                <p>Floor area : ${element.floorArea}</p>
+                <p>Plot area : ${element.plotArea}</p>
+                <p>Rooms : ${element.rooms}</p>
+                <p>Construction type : ${element.constructionType}</p>
+                <p>Balcony : ${hasBalcony}</p>
+                <p>Roof terrace : ${hasRoofTerrace}</p>
+                <p>Garden : ${hasGarden}</p>
+                <p>Published : ${published}</p>
+                <img src=${element.photo}>
+            `
+        ad.appendChild(viewButton)
+        container.append(ad);
     });
 };
-renderAds(filterAds());
+let sorted = sortResults(filterAds())
+renderAds(sorted);
