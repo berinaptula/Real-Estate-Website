@@ -18,6 +18,25 @@ var checkFilters = {
     roofTerrace: false
 }
 
+let likedAds = [{
+    type: 'apartment',
+    price: 225000,
+    adress: "Adrianstraat 96",
+    published: moment().subtract(4, 'days'),
+    city: 'Rotterdam',
+    postcode: '3014 XR',
+    floorArea: 83,
+    plotArea: null,
+    rooms: 4,
+    photo: 'media/img/ad6.jpg',
+    constructionType: 'new',
+    balcony: false,
+    roofTerrace: false,
+    garden: false,
+    id: 'ad6',
+    gallery: ['media/img/ad6.jpg', 'media/img/2.jpg', 'media/img/3.jpg', 'media/img/4.jpg', 'media/img/5.jpg']
+}];
+
 // Function which filters the ads (yet to be improved)
 const filterAds = () => {
     const priceFilter = adsArr.filter(function (item) {
@@ -124,7 +143,7 @@ const setFilters = (e) => {
             filters.rooms = roomNumber;
         }
     }
-    // Filter for days since it was published
+    // Filter for rooms
     if (document.getElementById('rooms-all').checked) {
         filters.rooms = 999999999;
     } else if (document.getElementById('room-1').checked) {
@@ -138,6 +157,9 @@ const setFilters = (e) => {
     } else if (document.getElementById('room-5').checked) {
         filters.rooms = 5;
     }
+
+    // filters.rooms =  document.querySelector('input[name="rooms"]:checked').value;
+    // console.log("is " + x)
 
     // Filter for days since it was published
     if (document.getElementById('days-all').checked) {
@@ -307,6 +329,47 @@ const sortResults = (filtered) => {
 }
 sortResults(filterAds())
 
+const likeAd = (e) => {
+    let adId = e.target.parentNode.id
+    let sorted = sortResults(filterAds())
+    let liked = sorted.find((ad) => ad.id === adId)
+
+    let check = likedAds.find((ad) => {
+        return ad.id === liked.id
+    })
+    if (!check) {
+        likedAds.push(liked);
+        renderLikedAds();
+    } else {
+        let indexRemove = likedAds.findIndex((ad) => {
+            return ad.id === liked.id
+
+        })
+        likedAds.splice(indexRemove, 1)
+        renderLikedAds()
+        console.log(indexRemove)
+    }
+}
+
+const renderLikedAds = () => {
+    const likedContainer = document.querySelector('.liked')
+
+    if (likedAds[0]) {
+        likedContainer.innerHTML = '';
+        likedAds.forEach((ad) => {
+            const savedAdDOM = document.createElement('div')
+            savedAdDOM.classList = 'saved-ad'
+            savedAdDOM.innerHTML = `<img src="${ad.photo}"> 
+                                    <h3>${ad.adress}</h3>
+                                   `
+            likedContainer.append(savedAdDOM)
+        })
+    } else {
+        console.log('its zero')
+    }
+    console.log(likedAds);
+}
+renderLikedAds();
 
 const emptyDom = () => {
     const container = document.querySelector('.container');
@@ -352,19 +415,26 @@ const renderAds = (adsArray) => {
         ad.id = element.id
 
         let whenIsPublished = element.published.fromNow();
-        var x = new moment()
-        var inDays = moment.duration(x.diff(element.published)).asDays();
-        var inDaysInt = parseInt(inDays);
-        var published = '';
+        let x = new moment()
+        let inDays = moment.duration(x.diff(element.published)).asDays();
+        let inDaysInt = parseInt(inDays);
+        let published = '';
 
-        var viewButton = document.createElement('button');
+        const viewButton = document.createElement('button');
         viewButton.id = element.id;
         viewButton.textContent = 'View Ad'
         viewButton.addEventListener('click', (e) => {
             let id = e.target.parentNode.id
             location.assign(`/ad.html#${id}`)
         })
-        console.log(inDaysInt)
+
+        const likeButton = document.createElement('button');
+        likeButton.className = 'likeButton'
+        likeButton.textContent = "Like"
+        likeButton.addEventListener('click', (e) => {
+            likeAd(e);
+        })
+
         if (inDaysInt >= 1) {
             published = whenIsPublished;
         }
@@ -407,7 +477,7 @@ const renderAds = (adsArray) => {
                 <p>Published : ${published}</p>
                 <img src=${element.photo}>
             `
-        ad.appendChild(viewButton)
+        ad.append(likeButton, viewButton)
         container.append(ad);
     });
 };
