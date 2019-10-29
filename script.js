@@ -18,24 +18,24 @@ var checkFilters = {
     roofTerrace: false
 }
 
-let likedAds = [{
-    type: 'apartment',
-    price: 225000,
-    adress: "Adrianstraat 96",
-    published: moment().subtract(4, 'days'),
-    city: 'Rotterdam',
-    postcode: '3014 XR',
-    floorArea: 83,
-    plotArea: null,
-    rooms: 4,
-    photo: 'media/img/ad6.jpg',
-    constructionType: 'new',
-    balcony: false,
-    roofTerrace: false,
-    garden: false,
-    id: 'ad6',
-    gallery: ['media/img/ad6.jpg', 'media/img/2.jpg', 'media/img/3.jpg', 'media/img/4.jpg', 'media/img/5.jpg']
-}];
+let likedAds = [];
+
+const saveLikedAds = () => {
+    let likedAdsAray = JSON.stringify(likedAds);
+    localStorage.setItem('savedAds', likedAdsAray);
+}
+
+const getSavedLikedAds = () => {
+    let getLikedAds = localStorage.getItem('savedAds');
+    let likedAdsJSON = JSON.parse(getLikedAds)
+    return likedAdsJSON
+}
+if (getSavedLikedAds().length > 0) {
+    likedAds = getSavedLikedAds();
+} else if (getSavedLikedAds().length === 0) {
+    likedAds = []
+    console.log('YESSSS ITS EMPTY')
+}
 
 // Function which filters the ads (yet to be improved)
 const filterAds = () => {
@@ -162,11 +162,10 @@ const setFilters = (e) => {
 
 
 };
-console.log(filters);
+
 
 const sortResults = (filtered) => {
     let sortBy = document.querySelector('.sortBy').value;
-    console.log(sortBy)
     if (sortBy === 'newest') {
         return filtered.sort((a, b) => {
             if (a.published.valueOf() > b.published.valueOf()) {
@@ -178,7 +177,6 @@ const sortResults = (filtered) => {
             }
         })
     } else if (sortBy === 'oldest') {
-        console.log(sortBy)
         return filtered.sort((a, b) => {
             if (a.published.valueOf() < b.published.valueOf()) {
                 return -1
@@ -189,7 +187,6 @@ const sortResults = (filtered) => {
             }
         })
     } else if (sortBy === 'price-lowest') {
-        console.log(sortBy)
         return filtered.sort((a, b) => {
             if (a.price < b.price) {
                 return -1
@@ -200,7 +197,6 @@ const sortResults = (filtered) => {
             }
         })
     } else if (sortBy === 'price-highest') {
-        console.log(sortBy)
         return filtered.sort((a, b) => {
             if (a.price > b.price) {
                 return -1
@@ -211,7 +207,6 @@ const sortResults = (filtered) => {
             }
         })
     } else if (sortBy === 'rooms-lowest') {
-        console.log(sortBy)
         return filtered.sort((a, b) => {
             if (a.rooms < b.rooms) {
                 return -1
@@ -222,7 +217,6 @@ const sortResults = (filtered) => {
             }
         })
     } else if (sortBy === 'rooms-highest') {
-        console.log(sortBy)
         return filtered.sort((a, b) => {
             if (a.rooms > b.rooms) {
                 return -1
@@ -233,7 +227,6 @@ const sortResults = (filtered) => {
             }
         })
     } else if (sortBy === 'floor-lowest') {
-        console.log(sortBy)
         return filtered.sort((a, b) => {
             if (a.floorArea < b.floorArea) {
                 return -1
@@ -244,7 +237,6 @@ const sortResults = (filtered) => {
             }
         })
     } else if (sortBy === 'floor-highest') {
-        console.log(sortBy)
         return filtered.sort((a, b) => {
             if (a.floorArea > b.floorArea) {
                 return -1
@@ -261,6 +253,8 @@ const sortResults = (filtered) => {
 }
 sortResults(filterAds())
 
+
+
 const likeAd = (e) => {
     let adId = e.target.parentNode.id
     let sorted = sortResults(filterAds())
@@ -271,16 +265,17 @@ const likeAd = (e) => {
     })
     if (!check) {
         likedAds.push(liked);
-        renderLikedAds();
     } else {
         let indexRemove = likedAds.findIndex((ad) => {
             return ad.id === liked.id
 
         })
         likedAds.splice(indexRemove, 1)
-        renderLikedAds()
-        console.log(indexRemove)
     }
+
+    saveLikedAds();
+    getSavedLikedAds();
+    renderLikedAds()
 }
 
 const renderLikedAds = () => {
@@ -297,7 +292,7 @@ const renderLikedAds = () => {
             likedContainer.append(savedAdDOM)
         })
     } else {
-        console.log('its zero')
+        likedContainer.innerHTML = '';
     }
     console.log(likedAds);
 }
@@ -310,7 +305,6 @@ const emptyDom = () => {
 const reRenderDOM = (e) => {
     emptyDom();
     setFilters(e);
-    console.log(filters);
     filterAds();
     let sorted = sortResults(filterAds())
     renderAds(sorted);
