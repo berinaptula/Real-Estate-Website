@@ -119,90 +119,28 @@ const setFilters = (e) => {
     // Filter the minimum and maximum price
     let minPrice = document.querySelector('.min-price').value;
     let maxPrice = document.querySelector('.max-price').value;
-    filters.price = minPrice;
-    filters.priceMax = maxPrice;
+    filters.price = parseInt(minPrice);
+    filters.priceMax = parseInt(maxPrice);
 
-    if (minPrice > maxPrice) {
-        document.querySelector('.max-price').value = minPrice
+    if (filters.price >= filters.priceMax) {
+        filters.priceMax = document.querySelector('.max-price').value = parseInt(minPrice) * 2;
     }
 
     // Filter for House or Apartment
-    if (document.getElementById('type-all').checked) {
-        filters.type = 'all';
-    } else if (document.getElementById('type-apartment').checked) {
-        filters.type = 'apartment';
-    } else if (document.getElementById('type-house').checked) {
-        filters.type = 'house';
-    }
+    filters.type = document.querySelector('input[name="type"]:checked').value;
 
     // Filter for rooms
-    for (let roomNumber = 1; roomNumber <= 5; roomNumber++) {
-        if (document.getElementById('rooms-all').checked) {
-            filters.rooms = 0;
-        } else if (document.getElementById(`room-${roomNumber}`).checked) {
-            filters.rooms = roomNumber;
-        }
-    }
-    // Filter for rooms
-    if (document.getElementById('rooms-all').checked) {
-        filters.rooms = 999999999;
-    } else if (document.getElementById('room-1').checked) {
-        filters.rooms = 1;
-    } else if (document.getElementById('room-2').checked) {
-        filters.rooms = 2;
-    } else if (document.getElementById('room-3').checked) {
-        filters.rooms = 3;
-    } else if (document.getElementById('room-4').checked) {
-        filters.rooms = 4;
-    } else if (document.getElementById('room-5').checked) {
-        filters.rooms = 5;
-    }
+    filters.rooms = parseInt(document.querySelector('input[name="rooms"]:checked').value);
 
-    // filters.rooms =  document.querySelector('input[name="rooms"]:checked').value;
-    // console.log("is " + x)
-
-    // Filter for days since it was published
-    if (document.getElementById('days-all').checked) {
-        filters.published = null;
-    } else if (document.getElementById('day-today').checked) {
-        filters.published = 1;
-    } else if (document.getElementById('day-3').checked) {
-        filters.published = 3;
-    } else if (document.getElementById('day-10').checked) {
-        filters.published = 10;
-    } else if (document.getElementById('day-30').checked) {
-        filters.published = 30;
-    }
+    // // Filter for days since it was published
+    filters.published = parseInt(document.querySelector('input[name="days"]:checked').value);
 
     // Filter for floor area
-    if (document.getElementById('floor-all').checked) {
-        filters.floorArea = 999999999;
-    } else if (document.getElementById('floor-50m2').checked) {
-        filters.floorArea = 50;
-    } else if (document.getElementById('floor-75m2').checked) {
-        filters.floorArea = 75;
-    } else if (document.getElementById('floor-100m2').checked) {
-        filters.floorArea = 100;
-    } else if (document.getElementById('floor-150m2').checked) {
-        filters.floorArea = 150;
-    } else if (document.getElementById('floor-250m2').checked) {
-        filters.floorArea = 250;
-    }
+    filters.floorArea = parseInt(document.querySelector('input[name="floorArea"]:checked').value);
 
     // Filter for the Plot area
-    if (document.getElementById('plot-all').checked) {
-        filters.plotArea = 99999999;
-    } else if (document.getElementById('plot-250m2').checked) {
-        filters.plotArea = 250;
-    } else if (document.getElementById('plot-500m2').checked) {
-        filters.plotArea = 500;
-    } else if (document.getElementById('plot-1000m2').checked) {
-        filters.plotArea = 1000;
-    } else if (document.getElementById('plot-2500m2').checked) {
-        filters.plotArea = 2500;
-    } else if (document.getElementById('plot-5000m2').checked) {
-        filters.plotArea = 5000;
-    }
+    filters.plotArea = parseInt(document.querySelector('input[name="plot-area"]:checked').value);
+
 
     // Balcony, Garden and Roof terrace filters
     if (document.getElementById('balcony').checked) {
@@ -220,15 +158,9 @@ const setFilters = (e) => {
     } else {
         checkFilters.garden = false;
     }
+    filters.constructionType = document.querySelector('input[name="construction"]:checked').value;
 
-    // Type of construction filters
-    if (document.getElementById('all-construction').checked) {
-        filters.constructionType = 'all';
-    } else if (document.getElementById('new-construction').checked) {
-        filters.constructionType = 'new';
-    } else if (document.getElementById('resale-construction').checked) {
-        filters.constructionType = 'resale';
-    }
+
 };
 console.log(filters);
 
@@ -386,12 +318,12 @@ const reRenderDOM = (e) => {
 
 const form = document.querySelector('.filters');
 form.addEventListener('click', (e) => {
-    reRenderDOM();
+    reRenderDOM(e);
 });
 
 const propertyPrice = document.querySelector('.propertyPrice');
 propertyPrice.addEventListener('change', (e) => {
-    reRenderDOM();
+    reRenderDOM(e);
 })
 const searchQuery = document.querySelector('#search');
 searchQuery.addEventListener('input', (e) => {
