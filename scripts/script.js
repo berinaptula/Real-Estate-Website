@@ -255,7 +255,7 @@ sortResults(filterAds())
 
 
 const likeAd = (e) => {
-    let adId = e.target.parentNode.id
+    let adId = e.target.parentNode.parentNode.id
     let sorted = sortResults(filterAds())
     let liked = sorted.find((ad) => ad.id === adId)
 
@@ -362,9 +362,10 @@ const renderAds = (adsArray) => {
 
         const viewButton = document.createElement('button');
         viewButton.id = element.id;
+        viewButton.className = "viewButton"
         viewButton.textContent = 'View Ad'
         viewButton.addEventListener('click', (e) => {
-            let id = e.target.parentNode.id
+            let id = e.target.parentNode.parentNode.id
             location.assign(`/ad.html#${id}`)
         })
 
@@ -412,17 +413,17 @@ const renderAds = (adsArray) => {
             </div>
             <div class="property-details">
                 <h3>${element.adress}</h3>
-                <p>Price : $${element.price}</p>
-                <p>City : ${element.city}</p>
-                <p>Postcode : ${element.postcode}</p>
-                <p>Floor area : ${element.floorArea}</p>
-                <p>Plot area : ${element.plotArea}</p>
-                <p>Rooms : ${element.rooms}</p>
-                <p>Construction type : ${element.constructionType}</p>
-                <p>Balcony : ${hasBalcony}</p>
-                <p>Roof terrace : ${hasRoofTerrace}</p>
-                <p>Garden : ${hasGarden}</p>
-                <p>Published : ${published}</p>
+                <p>Price : <span class="bold">$${element.price}</span></p>
+                <p>City : <span class="bold">${element.city}</span></p>
+                <p>Postcode : <span class="bold">${element.postcode}</span></p>
+                <p>Floor area : <span class="bold">${element.floorArea}</span></p>
+                <p>Plot area : <span class="bold">${element.plotArea}</span></p>
+                <p>Rooms : <span class="bold">${element.rooms}</span></p>
+                <p>Construction type : <span class="bold">${element.constructionType}</span></p>
+                <p>Balcony : <span class="bold">${hasBalcony}</span></p>
+                <p>Roof terrace : <span class="bold">${hasRoofTerrace}</p>
+                <p>Garden : <span class="bold">${hasGarden}</span></p>
+                <p>Published : <span class="bold">${published}</span></p>
             </div>
             `
         buttonContainer.append(likeButton, viewButton)

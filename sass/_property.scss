@@ -1,13 +1,30 @@
-.properties-container {
-    // margin: 2rem;
-}
-
 .property {
     display: flex;
     margin: 2rem 0;
-    background: rgb(225, 225, 225);
+    background-color: rgb(240, 240, 240);
+    box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.3);
     align-items: center;
     justify-content: space-between;
+    border-radius: 1rem;
+    transition: all 0.2s;
+    overflow: hidden;
+
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0.6rem 1.3rem rgba(0, 0, 0, 0.3);
+    }
+
+    &-photo {
+        width: 33%;
+        align-self: stretch;
+
+
+        img {
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
+        }
+    }
 
     &-details {
         align-self: stretch;
@@ -17,6 +34,14 @@
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+
+        h3 {
+            font-size: 1.7rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+        }
     }
 
     &-buttons {
@@ -25,5 +50,28 @@
         flex-direction: column;
         justify-content: space-evenly;
         margin-right: 2rem;
+
+        button {
+            padding: 1.5rem;
+            border-radius: 1rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .likeButton {
+            background-color: $color-primary;
+
+            &:hover {
+                background-color: lighten($color-primary, 10);
+            }
+        }
+
+        .viewButton {
+            background-color: $color-primary-light;
+
+            &:hover {
+                background-color: lighten($color-primary-light, 10);
+            }
+        }
     }
 }

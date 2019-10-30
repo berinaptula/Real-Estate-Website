@@ -1,6 +1,8 @@
 .sidebar {
     display: flex;
     flex-direction: column;
+    margin-top: 2rem;
+    width: 25%;
 
     &__options {
         display: flex;
@@ -16,6 +18,7 @@
     .select-group {
         display: flex;
         margin: 0.3rem;
+        font-size: 1.4rem;
 
         label {
             margin-left: 0.7rem;

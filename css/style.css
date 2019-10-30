@@ -1,3 +1,6 @@
+.bold {
+  font-weight: 600; }
+
 *,
 *::before,
 *::after {
@@ -10,7 +13,7 @@ html {
   font-size: 62.5%; }
 
 body {
-  color: black;
+  color: #4a4a4a;
   font-family: sans-serif;
   font-weight: 400; }
 
@@ -58,13 +61,15 @@ body {
 .properties {
   display: flex;
   flex-direction: column;
-  background: palegoldenrod;
   width: 100%;
-  padding: 2rem; }
+  padding: 2rem;
+  margin-left: 2rem; }
 
 .sidebar {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  margin-top: 2rem;
+  width: 25%; }
   .sidebar__options {
     display: flex;
     flex-direction: column; }
@@ -73,16 +78,31 @@ body {
       flex-direction: column; }
   .sidebar .select-group {
     display: flex;
-    margin: 0.3rem; }
+    margin: 0.3rem;
+    font-size: 1.4rem; }
     .sidebar .select-group label {
       margin-left: 0.7rem; }
 
 .property {
   display: flex;
   margin: 2rem 0;
-  background: #e1e1e1;
+  background-color: #f0f0f0;
+  box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.3);
   align-items: center;
-  justify-content: space-between; }
+  justify-content: space-between;
+  border-radius: 1rem;
+  transition: all 0.2s;
+  overflow: hidden; }
+  .property:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0.6rem 1.3rem rgba(0, 0, 0, 0.3); }
+  .property-photo {
+    width: 33%;
+    align-self: stretch; }
+    .property-photo img {
+      width: 100%;
+      object-fit: cover;
+      height: 100%; }
   .property-details {
     align-self: stretch;
     margin: 1rem 0;
@@ -91,9 +111,26 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around; }
+    .property-details h3 {
+      font-size: 1.7rem; }
+    .property-details p {
+      font-size: 1.1rem; }
   .property-buttons {
     align-self: stretch;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     margin-right: 2rem; }
+    .property-buttons button {
+      padding: 1.5rem;
+      border-radius: 1rem;
+      color: white;
+      cursor: pointer; }
+    .property-buttons .likeButton {
+      background-color: #f58d0d; }
+      .property-buttons .likeButton:hover {
+        background-color: #f7a43e; }
+    .property-buttons .viewButton {
+      background-color: #f4a546; }
+      .property-buttons .viewButton:hover {
+        background-color: #f7bc76; }

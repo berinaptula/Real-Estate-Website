@@ -1,3 +1,11 @@
+$font-color-primary : rgb(74, 74, 74);
+$color-primary : rgb(245, 141, 13);
+$color-primary-light : rgb(244, 165, 70);
+
+.bold {
+    font-weight: 600;
+}
+
 *,
 *::before,
 *::after {
@@ -12,7 +20,7 @@ html {
 }
 
 body {
-    color: black;
+    color: $font-color-primary;
     font-family: sans-serif;
     font-weight: 400;
 }
