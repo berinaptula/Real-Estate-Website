@@ -55,6 +55,13 @@ body {
 .landing-page {
   display: flex; }
 
+.properties {
+  display: flex;
+  flex-direction: column;
+  background: palegoldenrod;
+  width: 100%;
+  padding: 2rem; }
+
 .sidebar {
   display: flex;
   flex-direction: column; }
@@ -69,3 +76,24 @@ body {
     margin: 0.3rem; }
     .sidebar .select-group label {
       margin-left: 0.7rem; }
+
+.property {
+  display: flex;
+  margin: 2rem 0;
+  background: #e1e1e1;
+  align-items: center;
+  justify-content: space-between; }
+  .property-details {
+    align-self: stretch;
+    margin: 1rem 0;
+    margin-right: auto;
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; }
+  .property-buttons {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-right: 2rem; }

@@ -1,0 +1,29 @@
+.properties-container {
+    // margin: 2rem;
+}
+
+.property {
+    display: flex;
+    margin: 2rem 0;
+    background: rgb(225, 225, 225);
+    align-items: center;
+    justify-content: space-between;
+
+    &-details {
+        align-self: stretch;
+        margin: 1rem 0;
+        margin-right: auto;
+        margin-left: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    &-buttons {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-right: 2rem;
+    }
+}

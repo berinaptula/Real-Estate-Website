@@ -351,7 +351,7 @@ const renderAds = (adsArray) => {
     adsArray.forEach((element) => {
         const container = document.querySelector('.properties-container');
         const ad = document.createElement('div');
-        ad.className = 'obqva';
+        ad.className = 'property';
         ad.id = element.id
 
         let whenIsPublished = element.published.fromNow();
@@ -374,6 +374,9 @@ const renderAds = (adsArray) => {
         likeButton.addEventListener('click', (e) => {
             likeAd(e);
         })
+
+        const buttonContainer = document.createElement('div')
+        buttonContainer.className = "property-buttons"
 
         if (inDaysInt >= 1) {
             published = whenIsPublished;
@@ -403,7 +406,12 @@ const renderAds = (adsArray) => {
             hasGarden = "No"
         }
         ad.innerHTML =
-            ` <h3>${element.adress}</h3>
+            ` 
+            <div class="property-photo">
+             <img src=${element.photo}>
+            </div>
+            <div class="property-details">
+                <h3>${element.adress}</h3>
                 <p>Price : $${element.price}</p>
                 <p>City : ${element.city}</p>
                 <p>Postcode : ${element.postcode}</p>
@@ -415,9 +423,10 @@ const renderAds = (adsArray) => {
                 <p>Roof terrace : ${hasRoofTerrace}</p>
                 <p>Garden : ${hasGarden}</p>
                 <p>Published : ${published}</p>
-                <img src=${element.photo}>
+            </div>
             `
-        ad.append(likeButton, viewButton)
+        buttonContainer.append(likeButton, viewButton)
+        ad.appendChild(buttonContainer)
         container.append(ad);
     });
 };
