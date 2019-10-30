@@ -11,8 +11,6 @@ const getSavedLikedAds = () => {
     }
 }
 likedAds = getSavedLikedAds();
-console.log("what" + likedAds)
-console.log('what')
 
 const renderLikedAds = () => {
     const likedContainer = document.querySelector('.liked')

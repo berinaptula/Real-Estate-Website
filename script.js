@@ -267,7 +267,6 @@ const likeAd = (e) => {
     } else {
         let indexRemove = likedAds.findIndex((ad) => {
             return ad.id === liked.id
-
         })
         likedAds.splice(indexRemove, 1)
     }
@@ -279,15 +278,22 @@ const likeAd = (e) => {
 
 const renderLikedAds = () => {
     const likedContainer = document.querySelector('.liked')
-
     if (likedAds[0]) {
         likedContainer.innerHTML = '';
         likedAds.forEach((ad) => {
             const savedAdDOM = document.createElement('div')
+            const removeLikedButton = document.createElement('button')
+
+            removeLikedButton.textContent = "Remove"
+            removeLikedButton.addEventListener('click', (e) => {
+                removeLikedAd(e);
+            })
             savedAdDOM.classList = 'saved-ad'
+            savedAdDOM.id = ad.id
             savedAdDOM.innerHTML = `<img src="${ad.photo}"> 
                                     <h3>${ad.adress}</h3>
                                    `
+            savedAdDOM.append(removeLikedButton)
             likedContainer.append(savedAdDOM)
         })
     } else {
@@ -296,6 +302,15 @@ const renderLikedAds = () => {
     console.log(likedAds);
 }
 renderLikedAds();
+const removeLikedAd = (e) => {
+    let removeLikedId = e.target.parentNode.id
+    let indexToRemove = likedAds.findIndex(ad => ad.id === removeLikedId);
+    console.log(indexToRemove)
+    likedAds.splice(indexToRemove, 1);
+    saveLikedAds();
+    getSavedLikedAds();
+    renderLikedAds();
+}
 
 const emptyDom = () => {
     const container = document.querySelector('.container');
