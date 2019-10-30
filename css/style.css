@@ -51,3 +51,18 @@ body {
   .navigation__link, .navigation__link:visited, .navigation__link:active {
     text-decoration: none;
     color: white; }
+
+.landing-page {
+  display: flex; }
+
+.sidebar {
+  display: flex;
+  flex-direction: column; }
+  .sidebar__options {
+    display: flex;
+    flex-direction: column; }
+    .sidebar__options--block {
+      display: flex;
+      flex-direction: column; }
+  .sidebar .select-group {
+    display: flex; }

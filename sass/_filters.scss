@@ -1,0 +1,19 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+
+    &__options {
+        display: flex;
+
+        flex-direction: column;
+
+        &--block {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .select-group {
+        display: flex;
+    }
+}
