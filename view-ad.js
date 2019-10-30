@@ -1,6 +1,12 @@
 const adId = location.hash.substring(1)
 let likedAds = [];
 
+
+const saveLikedAds = () => {
+    let likedAdsAray = JSON.stringify(likedAds);
+    localStorage.setItem('savedAds', likedAdsAray);
+}
+
 const getSavedLikedAds = () => {
     let getLikedAds = localStorage.getItem('savedAds');
     if (getLikedAds === null) {
@@ -12,17 +18,44 @@ const getSavedLikedAds = () => {
 }
 likedAds = getSavedLikedAds();
 
+// const renderLikedAds = () => {
+//     const likedContainer = document.querySelector('.liked')
+
+//     if (likedAds[0]) {
+//         likedContainer.innerHTML = '';
+//         likedAds.forEach((ad) => {
+//             const savedAdDOM = document.createElement('div')
+//             savedAdDOM.classList = 'saved-ad'
+//             savedAdDOM.innerHTML = `<img src="${ad.photo}"> 
+//                                     <h3>${ad.adress}</h3>
+//                                    `
+//             likedContainer.append(savedAdDOM)
+//         })
+//     } else {
+//         likedContainer.innerHTML = '';
+//     }
+//     console.log(likedAds);
+// }
+// renderLikedAds();
+
 const renderLikedAds = () => {
     const likedContainer = document.querySelector('.liked')
-
     if (likedAds[0]) {
         likedContainer.innerHTML = '';
         likedAds.forEach((ad) => {
             const savedAdDOM = document.createElement('div')
+            const removeLikedButton = document.createElement('button')
+
+            removeLikedButton.textContent = "Remove"
+            removeLikedButton.addEventListener('click', (e) => {
+                removeLikedAd(e);
+            })
             savedAdDOM.classList = 'saved-ad'
+            savedAdDOM.id = ad.id
             savedAdDOM.innerHTML = `<img src="${ad.photo}"> 
                                     <h3>${ad.adress}</h3>
                                    `
+            savedAdDOM.append(removeLikedButton)
             likedContainer.append(savedAdDOM)
         })
     } else {
@@ -31,6 +64,15 @@ const renderLikedAds = () => {
     console.log(likedAds);
 }
 renderLikedAds();
+const removeLikedAd = (e) => {
+    let removeLikedId = e.target.parentNode.id
+    let indexToRemove = likedAds.findIndex(ad => ad.id === removeLikedId);
+    console.log(indexToRemove)
+    likedAds.splice(indexToRemove, 1);
+    saveLikedAds();
+    getSavedLikedAds();
+    renderLikedAds();
+}
 
 let adFound = adsArr.find((ad) => ad.id === adId)
 
