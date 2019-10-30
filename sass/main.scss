@@ -1,3 +1,5 @@
-.container {
-    background-color: green;
-}
+@import "base.scss";
+@import "top-bar";
+@import "filters";
+@import "liked-properties";
+@import "property";
