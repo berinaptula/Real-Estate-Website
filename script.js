@@ -27,8 +27,12 @@ const saveLikedAds = () => {
 
 const getSavedLikedAds = () => {
     let getLikedAds = localStorage.getItem('savedAds');
-    let likedAdsJSON = JSON.parse(getLikedAds)
-    return likedAdsJSON
+    if (getLikedAds === null) {
+        return [];
+    } else {
+        let likedAdsJSON = JSON.parse(getLikedAds)
+        return likedAdsJSON
+    }
 }
 if (getSavedLikedAds().length > 0) {
     likedAds = getSavedLikedAds();
