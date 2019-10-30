@@ -6,8 +6,12 @@
 
     &__options {
         display: flex;
-
         flex-direction: column;
+        padding: 1rem;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid rgb(145, 145, 145);
+        }
 
         &--block {
             display: flex;
@@ -22,6 +26,37 @@
 
         label {
             margin-left: 0.7rem;
+        }
+    }
+
+    .propertySearch {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        border-bottom: 1px solid rgb(194, 194, 194);
+
+        label {
+            font-size: 2.6rem;
+            font-weight: 600;
+        }
+
+        input {
+            padding: 0.4rem;
+            font-size: 1.5rem;
+            font-style: sans-serif;
+        }
+    }
+
+    .propertyPrice {
+        display: flex;
+        flex-direction: column;
+
+        h3 {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            font-size: 1.4rem;
         }
     }
 }

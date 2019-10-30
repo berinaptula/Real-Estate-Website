@@ -72,7 +72,10 @@ body {
   width: 25%; }
   .sidebar__options {
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    padding: 1rem; }
+    .sidebar__options:not(:last-child) {
+      border-bottom: 1px solid #919191; }
     .sidebar__options--block {
       display: flex;
       flex-direction: column; }
@@ -82,6 +85,25 @@ body {
     font-size: 1.4rem; }
     .sidebar .select-group label {
       margin-left: 0.7rem; }
+  .sidebar .propertySearch {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-bottom: 1px solid #c2c2c2; }
+    .sidebar .propertySearch label {
+      font-size: 2.6rem;
+      font-weight: 600; }
+    .sidebar .propertySearch input {
+      padding: 0.4rem;
+      font-size: 1.5rem;
+      font-style: sans-serif; }
+  .sidebar .propertyPrice {
+    display: flex;
+    flex-direction: column; }
+    .sidebar .propertyPrice h3 {
+      margin-bottom: 1rem; }
+    .sidebar .propertyPrice label {
+      font-size: 1.4rem; }
 
 .property {
   display: flex;
