@@ -11,141 +11,156 @@
 
 <body>
     <nav class="top-bar">
-        <form class="search">
-            <div class="propertySearch">
-                <label for="search">Search</label>
-                <input type="text" id="search" name="search" placeholder="Search for Address or PostCode">
+        <div class="container top-bar__container">
+            <div class="logo">COMPANY LOGO</div>
+            <div class="navigation">
+                <ul class="navigation__list">
+                    <li class="navigation__list--item"><a class="navigation__link" href="#">Home</a></li>
+                    <li class="navigation__list--item"><a class="navigation__link" href="#">Liked</a></li>
+                    <li class="navigation__list--item"><a class="navigation__link" href="#">Profile</a></li>
+                </ul>
+                <div class="liked">
+                    <!-- This will be populated by JavaScript -->
+                </div>
             </div>
-        </form>
-        <button class="showLiked">&hearts;</button>
-        <div class="liked">
-
         </div>
     </nav>
-    <form class="filters">
-        <div class="propertyPrice">
-            <h3>Property price</h3>
-            <label for="min-price">Starting from</label>
-            <select class="min-price" name="min-price">
-                <option value="0">All</option>
-                <option value="100000">100.000</option>
-                <option value="150000">150.000</option>
-                <option value="200000">200.000</option>
-                <option value="250000">250.000</option>
-                <option value="500000">500.000</option>
-                <option value="1000000">1.000.000</option>
-            </select>
-            <label for="min-price">Up to</label>
-            <select class="max-price">
-                <option value="99999999999">All</option>
-                <option value="200000">200.000</option>
-                <option value="300000">300.000</option>
-                <option value="400000">400.000</option>
-                <option value="500000">500.000</option>
-                <option value="1000000">1.000.000</option>
-                <option value="2000000">2.000.000</option>
-            </select>
-        </div>
-        <div class="propertyType">
-            <h3>Property type</h3>
-            <input type="radio" id="type-all" class='radio' name="type" value="all" checked>
-            <label for="type-all">All</label>
-            <input type="radio" id="type-apartment" class='radio' name="type" value="apartment">
-            <label for="type-apartment">Apartment</label>
-            <input type="radio" id="type-house" class='radio' name="type" value="house">
-            <label for="type-house">House</label>
-        </div>
-        <div class="propertyRooms">
-            <h3>Rooms</h3>
-            <input type="radio" id="rooms-all" class='radio' name="rooms" value="999999999" checked>
-            <label for="rooms-all">All</label>
-            <input type="radio" id="room-1" class='radio' name="rooms" value="1">
-            <label for="room-1">1 Room</label>
-            <input type="radio" id="room-2" class='radio' name="rooms" value="2">
-            <label for="room-2">2 Rooms</label>
-            <input type="radio" id="room-3" class='radio' name="rooms" value="3">
-            <label for="room-3">3 Rooms</label>
-            <input type="radio" id="room-4" class='radio' name="rooms" value="4">
-            <label for="room-4">4 Rooms</label>
-            <input type="radio" id="room-5" class='radio' name="rooms" value="5">
-            <label for="room-5">5 Rooms</label>
-        </div>
-        <div class="propertyDaysOnWebsite">
-            <h3>Days on website</h3>
-            <input type="radio" id="days-all" class='radio' name="days" value="9999999999999" checked>
-            <label for="days-all">All</label>
-            <input type="radio" id="day-today" class='radio' name="days" value="0">
-            <label for="day-today">Today</label>
-            <input type="radio" id="day-3" class='radio' name="days" value="3">
-            <label for="day-3">3 days</label>
-            <input type="radio" id="day-10" class='radio' name="days" value="10">
-            <label for="dat-10">10 days</label>
-            <input type="radio" id="day-30" class='radio' name="days" value="30">
-            <label for="day-30">30 days</label>
-        </div>
-        <div class="propertyFloorArea">
-            <h3>Floor area</h3>
-            <input type="radio" id="floor-all" class='radio' name="floorArea" value="99999999999" checked>
-            <label for="floor-all">All</label>
-            <input type="radio" id="floor-50m2" class='radio' name="floorArea" value="50">
-            <label for="floor-50m2">50+ m2</label>
-            <input type="radio" id="floor-75m2" class='radio' name="floorArea" value="75">
-            <label for="floor-75m2">75+ m2</label>
-            <input type="radio" id="floor-100m2" class='radio' name="floorArea" value="100">
-            <label for="floor-100m2">100+ m2</label>
-            <input type="radio" id="floor-150m2" class='radio' name="floorArea" value="150">
-            <label for="floor-150m2">150+ m2</label>
-            <input type="radio" id="floor-250m2" class='radio' name="floorArea" value="250">
-            <label for="floor-250m2">250+ m2</label>
-        </div>
-        <div class="propertyPlotArea">
-            <h3>Plot area</h3>
-            <input type="radio" id="plot-all" class='radio' name="plot-area" value="99999999999" checked>
-            <label for="plot-all">All</label>
-            <input type="radio" id="plot-250m2" class='radio' name="plot-area" value="250">
-            <label for="plot-250m2">250+ m2</label>
-            <input type="radio" id="plot-500m2" class='radio' name="plot-area" value="500">
-            <label for="plot-500m2">500+ m2</label>
-            <input type="radio" id="plot-1000m2" class='radio' name="plot-area" value="1000">
-            <label for="plot-1000m2">1000+ m2</label>
-            <input type="radio" id="plot-2500m2" class='radio' name="plot-area" value="2500">
-            <label for="plot-2500m2">2500+ m2</label>
-            <input type="radio" id="plot-5000m2" class='radio' name="plot-area" value="5000">
-            <label for="plot-5000m2">5000+ m2</label>
-        </div>
-        <div class="exteriorSpace">
-            <h3>Exterior space</h3>
-            <input type="checkbox" id="balcony" value="balcony">
-            <label for="balcony">Balcony</label>
-            <input type="checkbox" id="roof-terrace" value="roof-terrace">
-            <label for="roof-terrace">Roof Terrace</label>
-            <input type="checkbox" id="garden" value="garden">
-            <label for="garden">Garden</label>
-        </div>
-        <div class="propertyPlotArea">
-            <h3>Type of construction</h3>
-            <input type="radio" id="all-construction" class='radio' name="construction" value="all" checked>
-            <label for="all-construction">All</label>
-            <input type="radio" id="new-construction" class='radio' name="construction" value="new">
-            <label for="new-construction">New construction</label>
-            <input type="radio" id="resale-construction" class='radio' name="construction" value="resale">
-            <label for="resale-construction">Resale construction</label>
-        </div>
-    </form>
-    <form class="sort-results">
-        <h3>Sort the results</h3>
-        <select class="sortBy">
-            <option value="newest">Newest</option>
-            <option value="oldest">Oldest</option>
-            <option value="price-lowest">Price lowest</option>
-            <option value="price-highest">Price highest</option>
-            <option value="rooms-lowest">Rooms lowest</option>
-            <option value="rooms-highest">Rooms Highest</option>
-            <option value="floor-lowest">Floor area lowest</option>
-            <option value="floor-highest">Floor area highest</option>
-        </select>
-    </form>
     <div class="container">
+        <div class="filter-options">
+            <form class="search">
+                <div class="propertySearch">
+                    <label for="search">Search</label>
+                    <input type="text" id="search" name="search" placeholder="Search for Address or PostCode">
+                </div>
+            </form>
+            <form class="filters">
+                <div class="filter-options__area propertyPrice">
+                    <h3>Property price</h3>
+                    <label for="min-price">Starting from</label>
+                    <select class="min-price" name="min-price">
+                        <option value="0">All</option>
+                        <option value="100000">100.000</option>
+                        <option value="150000">150.000</option>
+                        <option value="200000">200.000</option>
+                        <option value="250000">250.000</option>
+                        <option value="500000">500.000</option>
+                        <option value="1000000">1.000.000</option>
+                    </select>
+                    <label for="min-price">Up to</label>
+                    <select class="max-price">
+                        <option value="99999999999">All</option>
+                        <option value="200000">200.000</option>
+                        <option value="300000">300.000</option>
+                        <option value="400000">400.000</option>
+                        <option value="500000">500.000</option>
+                        <option value="1000000">1.000.000</option>
+                        <option value="2000000">2.000.000</option>
+                    </select>
+                </div>
+                <div class="filter-options__area propertyType">
+                    <h3>Property type</h3>
+                    <input type="radio" id="type-all" class='radio' name="type" value="all" checked>
+                    <label for="type-all">All</label>
+                    <input type="radio" id="type-apartment" class='radio' name="type" value="apartment">
+                    <label for="type-apartment">Apartment</label>
+                    <input type="radio" id="type-house" class='radio' name="type" value="house">
+                    <label for="type-house">House</label>
+                </div>
+                <div class="filter-options__area propertyRooms">
+                    <h3>Rooms</h3>
+                    <input type="radio" id="rooms-all" class='radio' name="rooms" value="999999999" checked>
+                    <label for="rooms-all">All</label>
+                    <input type="radio" id="room-1" class='radio' name="rooms" value="1">
+                    <label for="room-1">1 Room</label>
+                    <input type="radio" id="room-2" class='radio' name="rooms" value="2">
+                    <label for="room-2">2 Rooms</label>
+                    <input type="radio" id="room-3" class='radio' name="rooms" value="3">
+                    <label for="room-3">3 Rooms</label>
+                    <input type="radio" id="room-4" class='radio' name="rooms" value="4">
+                    <label for="room-4">4 Rooms</label>
+                    <input type="radio" id="room-5" class='radio' name="rooms" value="5">
+                    <label for="room-5">5 Rooms</label>
+                </div>
+                <div class="filter-options__area propertyDaysOnWebsite">
+                    <h3>Days on website</h3>
+                    <input type="radio" id="days-all" class='radio' name="days" value="9999999999999" checked>
+                    <label for="days-all">All</label>
+                    <input type="radio" id="day-today" class='radio' name="days" value="0">
+                    <label for="day-today">Today</label>
+                    <input type="radio" id="day-3" class='radio' name="days" value="3">
+                    <label for="day-3">3 days</label>
+                    <input type="radio" id="day-10" class='radio' name="days" value="10">
+                    <label for="dat-10">10 days</label>
+                    <input type="radio" id="day-30" class='radio' name="days" value="30">
+                    <label for="day-30">30 days</label>
+                </div>
+                <div class="filter-options__area propertyFloorArea">
+                    <h3>Floor area</h3>
+                    <input type="radio" id="floor-all" class='radio' name="floorArea" value="99999999999" checked>
+                    <label for="floor-all">All</label>
+                    <input type="radio" id="floor-50m2" class='radio' name="floorArea" value="50">
+                    <label for="floor-50m2">50+ m2</label>
+                    <input type="radio" id="floor-75m2" class='radio' name="floorArea" value="75">
+                    <label for="floor-75m2">75+ m2</label>
+                    <input type="radio" id="floor-100m2" class='radio' name="floorArea" value="100">
+                    <label for="floor-100m2">100+ m2</label>
+                    <input type="radio" id="floor-150m2" class='radio' name="floorArea" value="150">
+                    <label for="floor-150m2">150+ m2</label>
+                    <input type="radio" id="floor-250m2" class='radio' name="floorArea" value="250">
+                    <label for="floor-250m2">250+ m2</label>
+                </div>
+                <div class="filter-options__area propertyPlotArea">
+                    <h3>Plot area</h3>
+                    <input type="radio" id="plot-all" class='radio' name="plot-area" value="99999999999" checked>
+                    <label for="plot-all">All</label>
+                    <input type="radio" id="plot-250m2" class='radio' name="plot-area" value="250">
+                    <label for="plot-250m2">250+ m2</label>
+                    <input type="radio" id="plot-500m2" class='radio' name="plot-area" value="500">
+                    <label for="plot-500m2">500+ m2</label>
+                    <input type="radio" id="plot-1000m2" class='radio' name="plot-area" value="1000">
+                    <label for="plot-1000m2">1000+ m2</label>
+                    <input type="radio" id="plot-2500m2" class='radio' name="plot-area" value="2500">
+                    <label for="plot-2500m2">2500+ m2</label>
+                    <input type="radio" id="plot-5000m2" class='radio' name="plot-area" value="5000">
+                    <label for="plot-5000m2">5000+ m2</label>
+                </div>
+                <div class="filter-options__area exteriorSpace">
+                    <h3>Exterior space</h3>
+                    <input type="checkbox" id="balcony" value="balcony">
+                    <label for="balcony">Balcony</label>
+                    <input type="checkbox" id="roof-terrace" value="roof-terrace">
+                    <label for="roof-terrace">Roof Terrace</label>
+                    <input type="checkbox" id="garden" value="garden">
+                    <label for="garden">Garden</label>
+                </div>
+                <div class="filter-options__area propertyPlotArea">
+                    <h3>Type of construction</h3>
+                    <input type="radio" id="all-construction" class='radio' name="construction" value="all" checked>
+                    <label for="all-construction">All</label>
+                    <input type="radio" id="new-construction" class='radio' name="construction" value="new">
+                    <label for="new-construction">New construction</label>
+                    <input type="radio" id="resale-construction" class='radio' name="construction" value="resale">
+                    <label for="resale-construction">Resale construction</label>
+                </div>
+            </form>
+        </div>
+        <div class="properties">
+            <form class="sort-results">
+                <h3>Sort the results</h3>
+                <select class="sortBy">
+                    <option value="newest">Newest</option>
+                    <option value="oldest">Oldest</option>
+                    <option value="price-lowest">Price lowest</option>
+                    <option value="price-highest">Price highest</option>
+                    <option value="rooms-lowest">Rooms lowest</option>
+                    <option value="rooms-highest">Rooms Highest</option>
+                    <option value="floor-lowest">Floor area lowest</option>
+                    <option value="floor-highest">Floor area highest</option>
+                </select>
+            </form>
+            <div class="properties-container">
+            </div>
+        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.js"></script>
     <script src="scripts/ads.js"></script>

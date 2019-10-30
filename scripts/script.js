@@ -313,7 +313,7 @@ const removeLikedAd = (e) => {
 }
 
 const emptyDom = () => {
-    const container = document.querySelector('.container');
+    const container = document.querySelector('.properties-container');
     container.innerHTML = '';
 };
 const reRenderDOM = (e) => {
@@ -349,7 +349,7 @@ sortChangeListener.addEventListener('change', () => {
 // Render the DOM from the ads array (ads.js)
 const renderAds = (adsArray) => {
     adsArray.forEach((element) => {
-        const container = document.querySelector('.container');
+        const container = document.querySelector('.properties-container');
         const ad = document.createElement('div');
         ad.className = 'obqva';
         ad.id = element.id

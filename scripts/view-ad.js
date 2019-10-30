@@ -18,26 +18,6 @@ const getSavedLikedAds = () => {
 }
 likedAds = getSavedLikedAds();
 
-// const renderLikedAds = () => {
-//     const likedContainer = document.querySelector('.liked')
-
-//     if (likedAds[0]) {
-//         likedContainer.innerHTML = '';
-//         likedAds.forEach((ad) => {
-//             const savedAdDOM = document.createElement('div')
-//             savedAdDOM.classList = 'saved-ad'
-//             savedAdDOM.innerHTML = `<img src="${ad.photo}"> 
-//                                     <h3>${ad.adress}</h3>
-//                                    `
-//             likedContainer.append(savedAdDOM)
-//         })
-//     } else {
-//         likedContainer.innerHTML = '';
-//     }
-//     console.log(likedAds);
-// }
-// renderLikedAds();
-
 const renderLikedAds = () => {
     const likedContainer = document.querySelector('.liked')
     if (likedAds[0]) {
