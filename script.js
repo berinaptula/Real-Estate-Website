@@ -34,12 +34,7 @@ const getSavedLikedAds = () => {
         return likedAdsJSON
     }
 }
-if (getSavedLikedAds().length > 0) {
-    likedAds = getSavedLikedAds();
-} else if (getSavedLikedAds().length === 0) {
-    likedAds = []
-    console.log('YESSSS ITS EMPTY')
-}
+likedAds = getSavedLikedAds();
 
 // Function which filters the ads (yet to be improved)
 const filterAds = () => {

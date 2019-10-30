@@ -1,4 +1,38 @@
 const adId = location.hash.substring(1)
+let likedAds = [];
+
+const getSavedLikedAds = () => {
+    let getLikedAds = localStorage.getItem('savedAds');
+    if (getLikedAds === null) {
+        return [];
+    } else {
+        let likedAdsJSON = JSON.parse(getLikedAds)
+        return likedAdsJSON
+    }
+}
+likedAds = getSavedLikedAds();
+console.log("what" + likedAds)
+console.log('what')
+
+const renderLikedAds = () => {
+    const likedContainer = document.querySelector('.liked')
+
+    if (likedAds[0]) {
+        likedContainer.innerHTML = '';
+        likedAds.forEach((ad) => {
+            const savedAdDOM = document.createElement('div')
+            savedAdDOM.classList = 'saved-ad'
+            savedAdDOM.innerHTML = `<img src="${ad.photo}"> 
+                                    <h3>${ad.adress}</h3>
+                                   `
+            likedContainer.append(savedAdDOM)
+        })
+    } else {
+        likedContainer.innerHTML = '';
+    }
+    console.log(likedAds);
+}
+renderLikedAds();
 
 let adFound = adsArr.find((ad) => ad.id === adId)
 
