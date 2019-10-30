@@ -25,3 +25,7 @@
 ---
 ## 1.7 Multi-page data fetching
   * User is now able to see the liked properties in every page they visit.
+
+## 1.8 Remove liked property 
+  * User can now remove the liked property by pressing the "remove" button
+  * Integrated for both index.html and view-ad.html page.
