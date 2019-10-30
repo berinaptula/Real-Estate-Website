@@ -15,5 +15,10 @@
 
     .select-group {
         display: flex;
+        margin: 0.3rem;
+
+        label {
+            margin-left: 0.7rem;
+        }
     }
 }
