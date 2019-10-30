@@ -22,3 +22,6 @@
 ---
 ## 1.6 Re-formatting README.md 
   * I decided to reformat this file to make it more readable.
+---
+## 1.7 Multi-page data fetching
+  * User is now able to see the liked properties in every page they visit.
