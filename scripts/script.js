@@ -327,7 +327,7 @@ const renderLikedAds = () => {
 }
 renderLikedAds();
 const removeLikedAd = (e) => {
-    let removeLikedId = e.target.parentNode.id
+    let removeLikedId = e.target.parentNode.parentNode.id
     let indexToRemove = likedAds.findIndex(ad => ad.id === removeLikedId);
     console.log(indexToRemove)
     likedAds.splice(indexToRemove, 1);

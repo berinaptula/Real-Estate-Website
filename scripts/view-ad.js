@@ -24,18 +24,32 @@ const renderLikedAds = () => {
         likedContainer.innerHTML = '';
         likedAds.forEach((ad) => {
             const savedAdDOM = document.createElement('div')
+            const buttonsContainer = document.createElement('div')
             const removeLikedButton = document.createElement('button')
-
+            const viewLikedButton = document.createElement('button')
+            buttonsContainer.className = "saved-ad__buttons"
+            removeLikedButton.className = "saved-ad__buttons--button saved-ad__buttons--button--remove"
             removeLikedButton.textContent = "Remove"
             removeLikedButton.addEventListener('click', (e) => {
                 removeLikedAd(e);
             })
+            viewLikedButton.className = "saved-ad__buttons--button saved-ad__buttons--button--view"
+            viewLikedButton.textContent = "View"
+            viewLikedButton.addEventListener('click', (e) => {
+                let id = e.target.parentNode.parentNode.id
+                location.assign(`/ad.html#${id}`)
+            })
+
             savedAdDOM.classList = 'saved-ad'
             savedAdDOM.id = ad.id
             savedAdDOM.innerHTML = `<img src="${ad.photo}"> 
-                                    <h3>${ad.adress}</h3>
+                                    <div class="saved-ad__details">  
+                                     <h3>${ad.adress}</h3>
+                                     <p>$${ad.price}</p>
+                                    </div>
                                    `
-            savedAdDOM.append(removeLikedButton)
+            buttonsContainer.append(viewLikedButton, removeLikedButton)
+            savedAdDOM.append(buttonsContainer)
             likedContainer.append(savedAdDOM)
         })
     } else {
@@ -45,7 +59,7 @@ const renderLikedAds = () => {
 }
 renderLikedAds();
 const removeLikedAd = (e) => {
-    let removeLikedId = e.target.parentNode.id
+    let removeLikedId = e.target.parentNode.parentNode.id
     let indexToRemove = likedAds.findIndex(ad => ad.id === removeLikedId);
     console.log(indexToRemove)
     likedAds.splice(indexToRemove, 1);
@@ -142,3 +156,21 @@ next.addEventListener('click', () => {
     let currentPhoto = adFound.gallery[currentPhotoIndex]
     img.src = currentPhoto
 })
+const displayLiked = () => {
+    const likedBar = document.querySelector('.liked-bar');
+    let show = true;
+    const showLikedBtn = document.querySelector('#show-liked');
+    console.log(showLikedBtn)
+    showLikedBtn.addEventListener('click', () => {
+        if (show) {
+            showLikedBtn.style.backgroundColor = "#f4a546"
+            likedBar.style.display = "block"
+            show = false;
+        } else {
+            showLikedBtn.style.backgroundColor = ""
+            likedBar.style.display = "none"
+            show = true;
+        }
+    })
+}
+displayLiked();
