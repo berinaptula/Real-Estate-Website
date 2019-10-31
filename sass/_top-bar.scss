@@ -15,7 +15,8 @@
     font-size: 3rem;
     font-weight: bold;
     padding: 1rem;
-    justify-self: flex-start;
+    margin-right: auto;
+    margin-left: 5rem;
 }
 
 .navigation {
@@ -23,6 +24,8 @@
     align-items: center;
     justify-content: center;
     align-self: stretch;
+    margin-right: 5rem;
+
 
     &__list {
         list-style: none;
