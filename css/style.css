@@ -56,30 +56,69 @@ body {
     text-decoration: none;
     color: white; }
 
-.liked-bar__container {
-  display: flex; }
-  .liked-bar__container > * {
-    margin: 1rem; }
-
-.liked-bar__buttons {
-  padding: 1rem;
-  align-self: center;
-  outline: none;
-  border: 2px solid #f58d0d;
-  border-radius: 10px;
-  font-size: 1.5rem;
-  background-color: #f58d0d;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  color: white; }
-  .liked-bar__buttons:hover, .liked-bar__buttons:active {
-    background: #f4a546;
-    transform: scale(1.1); }
+.liked-bar {
+  background-color: #f0f0f0;
+  padding: 2rem 0;
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2); }
+  .liked-bar__container {
+    display: flex; }
+    .liked-bar__container > * {
+      margin: 1rem; }
+  .liked-bar__buttons {
+    padding: 1rem;
+    align-self: center;
+    outline: none;
+    border: 2px solid #f58d0d;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    background-color: #f58d0d;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: white; }
+    .liked-bar__buttons:hover, .liked-bar__buttons:active {
+      background: #f4a546;
+      transform: scale(1.1); }
 
 .liked {
   display: flex;
   max-width: 1200px;
-  overflow-x: scroll; }
+  overflow-x: scroll;
+  padding-bottom: 3.5rem; }
+  .liked .saved-ad {
+    font-size: 1.3rem;
+    text-align: center;
+    background-color: white;
+    padding: 1rem;
+    padding-bottom: 1.5rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+    .liked .saved-ad img {
+      width: 25rem; }
+    .liked .saved-ad__details {
+      margin-bottom: 1rem; }
+      .liked .saved-ad__details > * {
+        padding: 0.3rem; }
+    .liked .saved-ad__buttons {
+      display: flex;
+      width: 80%;
+      margin: 0 auto;
+      justify-content: space-around; }
+      .liked .saved-ad__buttons--button {
+        padding: 1rem;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all 0.2s; }
+        .liked .saved-ad__buttons--button:hover {
+          transform: scale(1.1); }
+        .liked .saved-ad__buttons--button--view {
+          background-color: #f58d0d; }
+          .liked .saved-ad__buttons--button--view:hover {
+            background-color: #f7a43e; }
+        .liked .saved-ad__buttons--button--remove {
+          background-color: #8a2f2f; }
+          .liked .saved-ad__buttons--button--remove:hover {
+            background-color: #b03c3c; }
   .liked > *:not(:first-child),
   .liked > *:not(:last-child) {
     margin: 0 1rem; }

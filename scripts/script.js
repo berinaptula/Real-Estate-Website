@@ -282,18 +282,32 @@ const renderLikedAds = () => {
         likedContainer.innerHTML = '';
         likedAds.forEach((ad) => {
             const savedAdDOM = document.createElement('div')
+            const buttonsContainer = document.createElement('div')
             const removeLikedButton = document.createElement('button')
-
+            const viewLikedButton = document.createElement('button')
+            buttonsContainer.className = "saved-ad__buttons"
+            removeLikedButton.className = "saved-ad__buttons--button saved-ad__buttons--button--remove"
             removeLikedButton.textContent = "Remove"
             removeLikedButton.addEventListener('click', (e) => {
                 removeLikedAd(e);
             })
+            viewLikedButton.className = "saved-ad__buttons--button saved-ad__buttons--button--view"
+            viewLikedButton.textContent = "View"
+            viewLikedButton.addEventListener('click', (e) => {
+                let id = e.target.parentNode.parentNode.id
+                location.assign(`/ad.html#${id}`)
+            })
+
             savedAdDOM.classList = 'saved-ad'
             savedAdDOM.id = ad.id
             savedAdDOM.innerHTML = `<img src="${ad.photo}"> 
-                                    <h3>${ad.adress}</h3>
+                                    <div class="saved-ad__details">  
+                                     <h3>${ad.adress}</h3>
+                                     <p>$${ad.price}</p>
+                                    </div>
                                    `
-            savedAdDOM.append(removeLikedButton)
+            buttonsContainer.append(viewLikedButton, removeLikedButton)
+            savedAdDOM.append(buttonsContainer)
             likedContainer.append(savedAdDOM)
         })
     } else {
@@ -436,11 +450,12 @@ renderAds(sorted);
 
 const slideRight = document.querySelector('.liked-right');
 const slideLeft = document.querySelector('.liked-left');
+const singleSavedWidth = document.querySelector('.saved-ad').offsetWidth;
 
 slideRight.addEventListener('click', () => {
     // alert('works')
-    const slide = document.querySelector('.liked').scrollLeft += 100;
+    const slide = document.querySelector('.liked').scrollLeft += singleSavedWidth * 3;
 })
 slideLeft.addEventListener('click', () => {
-    const slide = document.querySelector('.liked').scrollLeft -= 100;
+    const slide = document.querySelector('.liked').scrollLeft -= singleSavedWidth * 3;
 })

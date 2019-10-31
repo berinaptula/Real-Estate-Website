@@ -1,4 +1,9 @@
 .liked-bar {
+    background-color: rgb(240, 240, 240);
+    padding: 2rem 0;
+    box-shadow: 0 2rem 4rem rgba($color: #000000, $alpha: 0.2);
+
+
     &__container {
         display: flex;
 
@@ -31,6 +36,64 @@
     display: flex;
     max-width: 1200px;
     overflow-x: scroll;
+    padding-bottom: 3.5rem;
+
+    .saved-ad {
+        font-size: 1.3rem;
+        text-align: center;
+        background-color: white;
+        padding: 1rem;
+        padding-bottom: 1.5rem;
+        box-shadow: 0 1rem 2rem rgba($color: #000000, $alpha: 0.2);
+
+        img {
+            width: 25rem;
+        }
+
+        &__details {
+            margin-bottom: 1rem;
+
+            &>* {
+                padding: 0.3rem;
+            }
+        }
+
+        &__buttons {
+            display: flex;
+            width: 80%;
+            margin: 0 auto;
+            justify-content: space-around;
+
+            &--button {
+                padding: 1rem;
+                color: white;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: all 0.2s;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+
+                &--view {
+                    background-color: $color-primary;
+
+                    &:hover {
+                        background-color: lighten($color-primary, 10);
+                    }
+                }
+
+                &--remove {
+                    background-color: darken($color-red-dark, 10);
+
+                    &:hover {
+                        background-color: $color-red-dark;
+                    }
+                }
+            }
+        }
+    }
 
     &>*:not(:first-child),
     &>*:not(:last-child) {
