@@ -10,7 +10,8 @@
 
 html {
   box-sizing: border-box;
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  scroll-behavior: smooth; }
 
 body {
   color: #4a4a4a;
@@ -54,6 +55,34 @@ body {
   .navigation__link, .navigation__link:visited, .navigation__link:active {
     text-decoration: none;
     color: white; }
+
+.liked-bar__container {
+  display: flex; }
+  .liked-bar__container > * {
+    margin: 1rem; }
+
+.liked-bar__buttons {
+  padding: 1rem;
+  align-self: center;
+  outline: none;
+  border: 2px solid #f58d0d;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  background-color: #f58d0d;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: white; }
+  .liked-bar__buttons:hover, .liked-bar__buttons:active {
+    background: #f4a546;
+    transform: scale(1.1); }
+
+.liked {
+  display: flex;
+  max-width: 1200px;
+  overflow-x: scroll; }
+  .liked > *:not(:first-child),
+  .liked > *:not(:last-child) {
+    margin: 0 1rem; }
 
 .landing-page {
   display: flex; }
@@ -114,7 +143,8 @@ body {
   justify-content: space-between;
   border-radius: 1rem;
   transition: all 0.2s;
-  overflow: hidden; }
+  overflow: hidden;
+  border: 1px solid #f58d0d; }
   .property:hover {
     transform: scale(1.02);
     box-shadow: 0 0.6rem 1.3rem rgba(0, 0, 0, 0.3); }

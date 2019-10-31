@@ -1,0 +1,39 @@
+.liked-bar {
+    &__container {
+        display: flex;
+
+        &>* {
+            margin: 1rem;
+        }
+    }
+
+    &__buttons {
+        padding: 1rem;
+        align-self: center;
+        outline: none;
+        border: 2px solid $color-primary;
+        border-radius: 10px;
+        font-size: 1.5rem;
+        background-color: $color-primary;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        color: white;
+
+        &:hover,
+        &:active {
+            background: $color-primary-light;
+            transform: scale(1.1);
+        }
+    }
+}
+
+.liked {
+    display: flex;
+    max-width: 1200px;
+    overflow-x: scroll;
+
+    &>*:not(:first-child),
+    &>*:not(:last-child) {
+        margin: 0 1rem;
+    }
+}

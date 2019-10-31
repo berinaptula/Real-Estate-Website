@@ -433,3 +433,14 @@ const renderAds = (adsArray) => {
 };
 let sorted = sortResults(filterAds())
 renderAds(sorted);
+
+const slideRight = document.querySelector('.liked-right');
+const slideLeft = document.querySelector('.liked-left');
+
+slideRight.addEventListener('click', () => {
+    // alert('works')
+    const slide = document.querySelector('.liked').scrollLeft += 100;
+})
+slideLeft.addEventListener('click', () => {
+    const slide = document.querySelector('.liked').scrollLeft -= 100;
+})
