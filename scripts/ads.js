@@ -14,7 +14,8 @@ const adsArr = [{
         roofTerrace: true,
         garden: true,
         id: 'ad1',
-        gallery: ['media/img/ad1.jpg', 'media/img/2.jpg', 'media/img/3.jpg', 'media/img/4.jpg', 'media/img/5.jpg']
+        gallery: ['media/img/ad1.jpg', 'media/img/2.jpg', 'media/img/3.jpg', 'media/img/4.jpg', 'media/img/5.jpg'],
+        liked: false
     },
     {
         type: 'apartment',
@@ -32,7 +33,8 @@ const adsArr = [{
         roofTerrace: false,
         garden: true,
         id: 'ad2',
-        gallery: ['media/img/ad2.jpg', 'media/img/2.jpg', 'media/img/3.jpg', 'media/img/4.jpg', 'media/img/5.jpg']
+        gallery: ['media/img/ad2.jpg', 'media/img/2.jpg', 'media/img/3.jpg', 'media/img/4.jpg', 'media/img/5.jpg'],
+        liked: false
     },
     {
         type: 'house',
@@ -50,7 +52,8 @@ const adsArr = [{
         roofTerrace: true,
         garden: false,
         id: 'ad3',
-        gallery: ['media/img/ad3.jpg', 'media/img/2.jpg', 'media/img/3.jpg', 'media/img/4.jpg', 'media/img/5.jpg']
+        gallery: ['media/img/ad3.jpg', 'media/img/2.jpg', 'media/img/3.jpg', 'media/img/4.jpg', 'media/img/5.jpg'],
+        liked: false
     },
     {
         type: 'house',
@@ -68,7 +71,8 @@ const adsArr = [{
         roofTerrace: false,
         garden: false,
         id: 'ad4',
-        gallery: ['media/img/ad4.jpg', 'media/img/2.jpg', 'media/img/3.jpg', 'media/img/4.jpg', 'media/img/5.jpg']
+        gallery: ['media/img/ad4.jpg', 'media/img/2.jpg', 'media/img/3.jpg', 'media/img/4.jpg', 'media/img/5.jpg'],
+        liked: false
     },
     {
         type: 'house',
@@ -86,7 +90,8 @@ const adsArr = [{
         roofTerrace: false,
         garden: false,
         id: 'ad5',
-        gallery: ['media/img/ad5.jpg', 'media/img/2.jpg', 'media/img/3.jpg', 'media/img/4.jpg', 'media/img/5.jpg']
+        gallery: ['media/img/ad5.jpg', 'media/img/2.jpg', 'media/img/3.jpg', 'media/img/4.jpg', 'media/img/5.jpg'],
+        liked: false
     },
     {
         type: 'apartment',
@@ -104,7 +109,8 @@ const adsArr = [{
         roofTerrace: false,
         garden: false,
         id: 'ad6',
-        gallery: ['media/img/ad6.jpg', 'media/img/2.jpg', 'media/img/3.jpg', 'media/img/4.jpg', 'media/img/5.jpg']
+        gallery: ['media/img/ad6.jpg', 'media/img/2.jpg', 'media/img/3.jpg', 'media/img/4.jpg', 'media/img/5.jpg'],
+        liked: false
     },
     {
         type: 'apartment',
@@ -122,7 +128,8 @@ const adsArr = [{
         roofTerrace: false,
         garden: false,
         id: 'ad7',
-        gallery: ['media/img/ad7.jpg', 'media/img/2.jpg', 'media/img/3.jpg', 'media/img/4.jpg', 'media/img/5.jpg']
+        gallery: ['media/img/ad7.jpg', 'media/img/2.jpg', 'media/img/3.jpg', 'media/img/4.jpg', 'media/img/5.jpg'],
+        liked: false
     },
     {
         type: 'apartment',
@@ -140,7 +147,8 @@ const adsArr = [{
         roofTerrace: true,
         garden: true,
         id: 'ad8',
-        gallery: ['media/img/ad8.jpg', 'media/img/2.jpg', 'media/img/3.jpg', 'media/img/4.jpg', 'media/img/5.jpg']
+        gallery: ['media/img/ad8.jpg', 'media/img/2.jpg', 'media/img/3.jpg', 'media/img/4.jpg', 'media/img/5.jpg'],
+        liked: false
     },
     {
         type: 'apartment',
@@ -158,7 +166,8 @@ const adsArr = [{
         roofTerrace: true,
         garden: false,
         id: 'ad9',
-        gallery: ['media/img/ad9.jpg', 'media/img/2.jpg', 'media/img/3.jpg', 'media/img/4.jpg', 'media/img/5.jpg']
+        gallery: ['media/img/ad9.jpg', 'media/img/2.jpg', 'media/img/3.jpg', 'media/img/4.jpg', 'media/img/5.jpg'],
+        liked: false
     },
     {
         type: 'apartment',
@@ -176,7 +185,8 @@ const adsArr = [{
         roofTerrace: false,
         garden: true,
         id: 'ad10',
-        gallery: ['media/img/ad10.jpg', 'media/img/2.jpg', 'media/img/3.jpg', 'media/img/4.jpg', 'media/img/5.jpg']
+        gallery: ['media/img/ad10.jpg', 'media/img/2.jpg', 'media/img/3.jpg', 'media/img/4.jpg', 'media/img/5.jpg'],
+        liked: false
     },
 
 ]

@@ -255,6 +255,7 @@ sortResults(filterAds())
 
 
 const likeAd = (e) => {
+    console.log(e.target)
     let adId = e.target.parentNode.parentNode.id
     let sorted = sortResults(filterAds())
     let liked = sorted.find((ad) => ad.id === adId)
@@ -263,11 +264,20 @@ const likeAd = (e) => {
         return ad.id === liked.id
     })
     if (!check) {
+        liked.liked = true;
+        console.log(e.target);
+        e.target.textContent = "Dislike"
+        e.target.style.backgroundColor = "#b03c3c"
         likedAds.push(liked);
     } else {
+        e.target.textContent = "Like"
+        e.target.style.backgroundColor = ""
+        console.log(e.target);
         let indexRemove = likedAds.findIndex((ad) => {
             return ad.id === liked.id
         })
+        liked.liked = false;
+        console.log(liked);
         likedAds.splice(indexRemove, 1)
     }
 
@@ -384,6 +394,8 @@ const renderAds = (adsArray) => {
         })
 
         const likeButton = document.createElement('button');
+        console.log(element.liked)
+
         likeButton.className = 'likeButton'
         likeButton.textContent = "Like"
         likeButton.addEventListener('click', (e) => {
@@ -450,16 +462,17 @@ renderAds(sorted);
 
 const slideRight = document.querySelector('.liked-right');
 const slideLeft = document.querySelector('.liked-left');
-const singleSavedWidth = document.querySelector('.saved-ad').offsetWidth;
+if (likedAds[0]) {
+    const singleSavedWidth = document.querySelector('.saved-ad').offsetWidth;
+    slideRight.addEventListener('click', () => {
+        // alert('works')
+        const slide = document.querySelector('.liked').scrollLeft += singleSavedWidth * 3;
+    })
+    slideLeft.addEventListener('click', () => {
+        const slide = document.querySelector('.liked').scrollLeft -= singleSavedWidth * 3;
+    })
 
-slideRight.addEventListener('click', () => {
-    // alert('works')
-    const slide = document.querySelector('.liked').scrollLeft += singleSavedWidth * 3;
-})
-slideLeft.addEventListener('click', () => {
-    const slide = document.querySelector('.liked').scrollLeft -= singleSavedWidth * 3;
-})
-
+}
 const displayLiked = () => {
     const likedBar = document.querySelector('.liked-bar');
     let show = true;
@@ -476,6 +489,5 @@ const displayLiked = () => {
             show = true;
         }
     })
-
 }
 displayLiked();
