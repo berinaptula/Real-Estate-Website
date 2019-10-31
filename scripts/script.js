@@ -459,3 +459,23 @@ slideRight.addEventListener('click', () => {
 slideLeft.addEventListener('click', () => {
     const slide = document.querySelector('.liked').scrollLeft -= singleSavedWidth * 3;
 })
+
+const displayLiked = () => {
+    const likedBar = document.querySelector('.liked-bar');
+    let show = true;
+    const showLikedBtn = document.querySelector('#show-liked');
+    console.log(showLikedBtn)
+    showLikedBtn.addEventListener('click', () => {
+        if (show) {
+            showLikedBtn.style.backgroundColor = "#f4a546"
+            likedBar.style.display = "block"
+            show = false;
+        } else {
+            showLikedBtn.style.backgroundColor = ""
+            likedBar.style.display = "none"
+            show = true;
+        }
+    })
+
+}
+displayLiked();

@@ -35,12 +35,14 @@ body {
 .logo {
   font-size: 3rem;
   font-weight: bold;
-  padding: 1rem; }
+  padding: 1rem;
+  justify-self: flex-start; }
 
 .navigation {
   display: flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  align-self: stretch; }
   .navigation__list {
     list-style: none;
     text-align: center;
@@ -48,18 +50,30 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0; }
+    padding: 0;
+    display: flex;
+    background: red;
+    align-self: stretch;
+    height: 100%; }
     .navigation__list--item {
-      display: inline-block;
-      margin: 0 2rem; }
+      display: flex;
+      background: green;
+      height: 100%; }
   .navigation__link, .navigation__link:visited, .navigation__link:active {
     text-decoration: none;
-    color: white; }
+    color: white;
+    height: 100%;
+    background-color: #f58d0d;
+    padding: 2rem;
+    transition: all 0.2s ease; }
+  .navigation__link:hover {
+    background-color: #f4a546; }
 
 .liked-bar {
   background-color: #f0f0f0;
   padding: 2rem 0;
-  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
+  display: none; }
   .liked-bar__container {
     display: flex; }
     .liked-bar__container > * {
