@@ -77,7 +77,9 @@ body {
   box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
   display: none; }
   .liked-bar__container {
-    display: flex; }
+    display: flex;
+    justify-content: center;
+    align-items: center; }
     .liked-bar__container > * {
       margin: 1rem; }
   .liked-bar__buttons {
