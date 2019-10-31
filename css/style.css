@@ -241,3 +241,45 @@ body {
       background-color: #f4a546; }
       .property-buttons .viewButton:hover {
         background-color: #f7bc76; }
+
+.ad {
+  display: flex;
+  width: 100%;
+  padding: 5rem;
+  margin: 0 auto;
+  background-color: #f0f0f0;
+  box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.3);
+  margin-top: 1rem; }
+  .ad .slider {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .ad .slider img {
+      width: 500px; }
+    .ad .slider button {
+      padding: 1rem 1.6rem;
+      background-color: #f58d0d;
+      font-size: 1.6rem;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer; }
+      .ad .slider button:hover {
+        background-color: #f7a43e; }
+    .ad .slider > * {
+      margin: 0 1rem; }
+  .ad .details {
+    margin-left: 3rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around; }
+    .ad .details .adress {
+      width: 100%;
+      text-align: center;
+      font-size: 3rem; }
+    .ad .details__blocks {
+      display: flex;
+      justify-content: space-around;
+      align-self: stretch;
+      font-size: 1.8rem; }

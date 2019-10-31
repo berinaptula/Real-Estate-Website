@@ -119,17 +119,17 @@ const renderAd = () => {
         hasGarden = "No"
     }
 
-    adress.textContent = adFound.adress
-    city.textContent = adFound.city
-    postcode.textContent = adFound.postcode
-    floorArea.textContent = adFound.floorArea
-    plotArea.textContent = adFound.plotArea
-    rooms.textContent = adFound.rooms
-    constructionType.textContent = adFound.constructionType
-    balcony.textContent = hasBalcony
-    roofTerrace.textContent = hasRoofTerrace
-    garden.textContent = hasGarden
-    publishedTime.textContent = published
+    adress.innerHTML = `<span class="bold">${adFound.adress}</span>`
+    city.innerHTML = `City <span class="bold">${adFound.city}</span>`
+    postcode.innerHTML = `Postcode : <span class="bold">${adFound.postcode}</span>`
+    floorArea.innerHTML = `Floor area: <span class="bold">${adFound.floorArea}</span>`
+    plotArea.innerHTML = `Plot area : <span class="bold">${adFound.plotArea}</span>`
+    rooms.innerHTML = `Rooms : <span class="bold">${adFound.rooms}</span>`
+    constructionType.innerHTML = `Construction type : <span class="bold">${adFound.constructionType}</span>`
+    balcony.innerHTML = `Balcony : <span class="bold">${hasBalcony}</span>`
+    roofTerrace.innerHTML = `Roof terrace : <span class="bold">${hasRoofTerrace}</span>`
+    garden.innerHTML = `Garden : <span class="bold">${hasGarden}</span>`
+    publishedTime.innerHTML = `Published : <span class="bold">${published}</span>`
     img.src = adFound.photo
 }
 renderAd()
