@@ -153,7 +153,7 @@ body {
   padding: 2rem;
   margin-left: 2rem; }
 
-.landing {
+.landing__header {
   width: 100vw;
   height: calc(100vh - 6rem);
   background: linear-gradient(rgba(245, 141, 13, 0.8), rgba(244, 165, 70, 0.5)), url(/media/img/landing-bg.jpg);
@@ -161,22 +161,59 @@ body {
   background-size: cover;
   display: flex;
   align-items: center;
-  justify-content: center; }
-  .landing__text {
-    text-align: center;
-    margin-top: -5rem;
+  justify-content: center;
+  background-attachment: fixed; }
+
+.landing__text {
+  text-align: center;
+  margin-top: -5rem;
+  font-weight: 300;
+  color: white;
+  text-transform: uppercase; }
+  .landing__text--heading {
+    font-size: 5rem;
     font-weight: 300;
-    color: white;
-    text-transform: uppercase; }
-    .landing__text--heading {
-      font-size: 5rem;
-      font-weight: 300;
-      letter-spacing: 0.7rem; }
-    .landing__text--text {
-      font-size: 2rem;
-      font-weight: 300;
-      letter-spacing: 0.3rem;
-      margin-top: 1rem; }
+    letter-spacing: 0.7rem; }
+  .landing__text--text {
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 0.3rem;
+    margin-top: 1rem; }
+
+.features {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 7rem; }
+  .features .feature {
+    text-align: center;
+    width: 33.3333333%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .features .feature__icon {
+      font-size: 10rem;
+      margin-bottom: 2.8rem;
+      color: transparent;
+      background: linear-gradient(to right bottom, rgba(245, 141, 13, 0.8), rgba(244, 165, 70, 0.5));
+      background-clip: text;
+      -webkit-background-clip: text;
+      transition: all 0.4s; }
+      .features .feature__icon:hover {
+        background: linear-gradient(to right bottom, rgba(245, 141, 13, 0.9), rgba(244, 165, 70, 0.7));
+        background-clip: text;
+        -webkit-background-clip: text;
+        transform: scale(1.1); }
+    .features .feature__text {
+      width: 80%; }
+      .features .feature__text--heading {
+        margin-bottom: 1.5rem;
+        color: #f58d0d; }
+      .features .feature__text--paragraph {
+        color: gray; }
 
 .sidebar {
   display: flex;
