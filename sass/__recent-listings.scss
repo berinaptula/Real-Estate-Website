@@ -1,0 +1,60 @@
+.recent-listings {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 0;
+    background: linear-gradient(to right bottom, rgba($color-primary, 1), rgba($color-primary-light, 0.5));
+    padding: 10rem 0;
+
+    &__text {
+        text-align: center;
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 4rem;
+
+        &--heading {
+            margin-bottom: 8rem;
+            text-align: center;
+            color: white;
+        }
+
+        &--paragraph {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+    }
+}
+
+.listings {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .listing {
+        width: 18%;
+        overflow: hidden;
+        padding: 0rem;
+        box-shadow: 0 1rem 2rem rgba($color: #000000, $alpha: 0.3);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1rem;
+        background-color: rgb(244, 244, 244);
+
+        &__image {
+            img {
+                height: 100%;
+                overflow: hidden;
+            }
+
+            margin-bottom: 1rem;
+        }
+
+        &__details {
+            text-align: center;
+
+        }
+    }
+}

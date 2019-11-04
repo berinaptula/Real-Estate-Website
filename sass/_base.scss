@@ -7,6 +7,16 @@ $color-red-dark : #b03c3c;
     font-weight: 600;
 }
 
+.h2 {
+    font-size: 3rem;
+    letter-spacing: 0.7rem;
+    color: $color-primary;
+}
+
+.p {
+    font-size: 1.4rem;
+}
+
 *,
 *::before,
 *::after {

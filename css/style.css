@@ -1,6 +1,14 @@
 .bold {
   font-weight: 600; }
 
+.h2 {
+  font-size: 3rem;
+  letter-spacing: 0.7rem;
+  color: #f58d0d; }
+
+.p {
+  font-size: 1.4rem; }
+
 *,
 *::before,
 *::after {
@@ -185,7 +193,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
   flex-direction: row;
-  margin-top: 7rem; }
+  margin: 10rem 0; }
   .features .feature {
     text-align: center;
     width: 33.3333333%;
@@ -366,3 +374,47 @@ body {
       justify-content: space-around;
       align-self: stretch;
       font-size: 1.8rem; }
+
+.recent-listings {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 0;
+  background: linear-gradient(to right bottom, #f58d0d, rgba(244, 165, 70, 0.5));
+  padding: 10rem 0; }
+  .recent-listings__text {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 4rem; }
+    .recent-listings__text--heading {
+      margin-bottom: 8rem;
+      text-align: center;
+      color: white; }
+    .recent-listings__text--paragraph {
+      margin-bottom: 2rem;
+      text-align: center; }
+
+.listings {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; }
+  .listings .listing {
+    width: 18%;
+    overflow: hidden;
+    padding: 0rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    background-color: #f4f4f4; }
+    .listings .listing__image {
+      margin-bottom: 1rem; }
+      .listings .listing__image img {
+        height: 100%;
+        overflow: hidden; }
+    .listings .listing__details {
+      text-align: center; }
