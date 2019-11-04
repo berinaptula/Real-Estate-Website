@@ -3,6 +3,7 @@
     padding: 2rem 0;
     box-shadow: 0 2rem 4rem rgba($color: #000000, $alpha: 0.2);
     display: none;
+    text-align: center;
 
 
     &__container {
@@ -40,6 +41,8 @@
     max-width: 1200px;
     overflow-x: scroll;
     padding-bottom: 3.5rem;
+    // align-items: center;
+    // justify-content: center;
 
     .saved-ad {
         font-size: 1.3rem;

@@ -75,7 +75,8 @@ body {
   background-color: #f0f0f0;
   padding: 2rem 0;
   box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
-  display: none; }
+  display: none;
+  text-align: center; }
   .liked-bar__container {
     display: flex;
     justify-content: center;

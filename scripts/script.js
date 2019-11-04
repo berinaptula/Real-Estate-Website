@@ -52,7 +52,6 @@ const getSavedAds = () => {
     }
 }
 ads = getSavedAds();
-console.log(ads)
 
 // Function which filters the ads (yet to be improved)
 const filterAds = () => {
@@ -273,12 +272,10 @@ sortResults(filterAds())
 
 
 const likeAd = (e) => {
-    console.log(e.target)
     let adId = e.target.parentNode.parentNode.id
     let sorted = sortResults(filterAds())
     let liked = sorted.find((ad) => ad.id === adId)
     let adsJSON = adsArr.find((ad) => ad.id === adId)
-    console.log(ads)
 
     let check = likedAds.find((ad) => {
         return ad.id === liked.id
@@ -286,20 +283,17 @@ const likeAd = (e) => {
     if (!check) {
         liked.liked = true;
         adsJSON.liked = true;
-        console.log(e.target);
         e.target.textContent = "Dislike"
         e.target.style.backgroundColor = "#b03c3c"
         likedAds.push(liked);
     } else {
         e.target.textContent = "Like"
         e.target.style.backgroundColor = ""
-        console.log(e.target);
         let indexRemove = likedAds.findIndex((ad) => {
             return ad.id === liked.id
         })
         liked.liked = false;
         adsJSON.liked = false;
-        console.log(adsJSON);
         likedAds.splice(indexRemove, 1)
     }
     saveLikedAds();
@@ -309,7 +303,12 @@ const likeAd = (e) => {
 
 const renderLikedAds = () => {
     const likedContainer = document.querySelector('.liked')
+    let buttonLeft = document.querySelector('.liked-left')
+    let buttonRight = document.querySelector('.liked-right')
     if (likedAds[0]) {
+        buttonLeft.style.display = "block";
+        buttonRight.style.display = "block"
+        likedContainer.style.paddingBottom = "3.5rem"
         likedContainer.innerHTML = '';
         likedAds.forEach((ad) => {
             const savedAdDOM = document.createElement('div')
@@ -342,15 +341,17 @@ const renderLikedAds = () => {
             likedContainer.append(savedAdDOM)
         })
     } else {
-        likedContainer.innerHTML = '';
+        buttonLeft.style.display = "none";
+        buttonRight.style.display = "none"
+        likedContainer.innerHTML = '<h3>You don\'t have any liked properties</h3>';
+        likedContainer.style.padding = "0"
+
     }
-    console.log(likedAds);
 }
 renderLikedAds();
 const removeLikedAd = (e) => {
     let removeLikedId = e.target.parentNode.parentNode.id
     let indexToRemove = likedAds.findIndex(ad => ad.id === removeLikedId);
-    console.log(indexToRemove)
     likedAds.splice(indexToRemove, 1);
     saveAds();
     getSavedAds();
@@ -422,7 +423,6 @@ const renderAds = (adsArray) => {
         })
 
         const likeButton = document.createElement('button');
-        console.log(element.liked)
 
         likeButton.className = 'likeButton'
         likeButton.textContent = "Like"
@@ -516,7 +516,6 @@ const displayLiked = () => {
     const likedBar = document.querySelector('.liked-bar');
     let show = true;
     const showLikedBtn = document.querySelector('#show-liked');
-    console.log(showLikedBtn)
     showLikedBtn.addEventListener('click', () => {
         if (show) {
             showLikedBtn.style.backgroundColor = "#f4a546"
