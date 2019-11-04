@@ -489,7 +489,7 @@ const renderAds = (adsArray) => {
             </div>
             <div class="property-details">
                 <h3>${element.adress}</h3>
-                <p><span class="bold"><i class="fas fa-euro-sign"></i> ${element.price}</span></p>
+                <p><span class="bold"><i class="fas fa-euro-sign"></i> ${(element.price).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')} </span></p>
                 <p><span class="bold"><i class="fas fa-map-marked-alt"></i> ${element.city} , ${element.postcode}</span></p>
                 <p><span class="bold">${element.rooms} rooms</span></p>
                 <p>Floor: <span class="bold">${element.floorArea} <sup>m2</sup></span></p>
@@ -500,7 +500,7 @@ const renderAds = (adsArray) => {
                     <p>Roof terrace : <span class="bold">${hasRoofTerrace}</p>
                     <p>Garden : <span class="bold">${hasGarden}</span></p>
                 </div>
-                <p>Published : <span class="bold">${published}</span></p>
+                <p><span class="bold"><i class="fas fa-calendar-alt"></i> ${published}</span></p>
             </div>
             `
         buttonContainer.append(likeButton, viewButton)
