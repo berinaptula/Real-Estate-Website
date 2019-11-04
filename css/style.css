@@ -245,6 +245,15 @@ body {
       .property-buttons .viewButton:hover {
         background-color: #f7bc76; }
 
+.properties-container .no-result {
+  padding: 10rem;
+  text-align: center;
+  font-size: 5rem; }
+
+.properties-container .results-count {
+  padding: 1rem;
+  text-align: center; }
+
 .ad {
   display: flex;
   width: 100%;

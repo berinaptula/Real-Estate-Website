@@ -126,9 +126,13 @@ const filterAds = () => {
         }
     })
     const finalResult = constructionFilter;
+
+    if (finalResult.length === 0) {
+        const propertiesContainer = document.querySelector('.properties-container')
+        propertiesContainer.innerHTML = "<h2 class='no-result'>No matching properties</h2>"
+    }
     return finalResult;
 };
-
 
 //
 const setFilters = (e) => {
@@ -399,8 +403,13 @@ sortChangeListener.addEventListener('change', () => {
 
 // Render the DOM from the ads array (ads.js)
 const renderAds = (adsArray) => {
+    const container = document.querySelector('.properties-container');
+    const resultsCount = document.createElement('h2')
+    resultsCount.textContent = `Results found : ${filterAds().length}`
+    resultsCount.classList = 'results-count'
+    container.append(resultsCount)
     adsArray.forEach((element) => {
-        const container = document.querySelector('.properties-container');
+
         const ad = document.createElement('div');
         ad.className = 'property';
         ad.id = element.id
@@ -408,8 +417,8 @@ const renderAds = (adsArray) => {
 
         let publishedStringToObject = moment(element.published);
         let whenIsPublished = publishedStringToObject.fromNow();
-        let x = new moment()
-        let inDays = moment.duration(x.diff(element.published)).asDays();
+        let now = new moment()
+        let inDays = moment.duration(now.diff(element.published)).asDays();
         let inDaysInt = parseInt(inDays);
         let published = '';
 
@@ -472,7 +481,7 @@ const renderAds = (adsArray) => {
             hasGarden = "No"
         }
         ad.innerHTML =
-            ` 
+            `
             <div class="property-photo">
              <img src=${element.photo}>
             </div>
