@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="top-bar">
+        <div class="container top-bar__container">
+            <div class="logo">COMPANY LOGO</div>
+            <div class="navigation">
+                <ul class="navigation__list">
+                    <li class="navigation__list--item"><a class="navigation__link" href="index.html">Home</a></li>
+                    <li class="navigation__list--item"><a class="navigation__link" href="#" id="show-liked">Liked</a>
+                    </li>
+                    <li class="navigation__list--item"><a class="navigation__link" href="#">Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="liked-bar">
+        <div class="container">
+            <div class="liked-bar__container">
+                <button class="liked-left liked-bar__buttons">&#8678;</button>
+                <div class="liked">
+                    <!-- This will be populated by JavaScript -->
+                </div>
+                <button class="liked-right liked-bar__buttons">&#8680;</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="landing-page">
+            <div class="sidebar">
+                <form class="search">
+                    <div class="propertySearch">
+                        <label for="search">Search</label>
+                        <input type="text" id="search" name="search" placeholder="City, Address or Postcode">
+                    </div>
+                </form>
+                <form class="filters">
+                    <div class="sidebar__options propertyPrice">
+                        <h3>Property price</h3>
+                        <div class="sidebar__options--block">
+                            <label for="min-price">From</label>
+                            <select class="min-price" name="min-price">
+                                <option value="0">All</option>
+                                <option value="100000">100.000</option>
+                                <option value="150000">150.000</option>
+                                <option value="200000">200.000</option>
+                                <option value="250000">250.000</option>
+                                <option value="500000">500.000</option>
+                                <option value="1000000">1.000.000</option>
+                            </select>
+                            <label for="min-price">Up to</label>
+                            <select class="max-price">
+                                <option value="99999999999">All</option>
+                                <option value="200000">200.000</option>
+                                <option value="300000">300.000</option>
+                                <option value="400000">400.000</option>
+                                <option value="500000">500.000</option>
+                                <option value="1000000">1.000.000</option>
+                                <option value="2000000">2.000.000</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="sidebar__options propertyType">
+                        <h3>Property type</h3>
+                        <div class="select-group">
+                            <input type="radio" id="type-all" class='radio' name="type" value="all" checked>
+                            <label for="type-all">All</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="type-apartment" class='radio' name="type" value="apartment">
+                            <label for="type-apartment">Apartment</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="type-house" class='radio' name="type" value="house">
+                            <label for="type-house">House</label>
+                        </div>
+                    </div>
+                    <div class="sidebar__options propertyRooms">
+                        <h3>Rooms</h3>
+                        <div class="select-group">
+                            <input type="radio" id="rooms-all" class='radio' name="rooms" value="999999999" checked>
+                            <label for="rooms-all">All</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="room-1" class='radio' name="rooms" value="1">
+                            <label for="room-1">1 Room</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="room-2" class='radio' name="rooms" value="2">
+                            <label for="room-2">2 Rooms</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="room-3" class='radio' name="rooms" value="3">
+                            <label for="room-3">3 Rooms</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="room-4" class='radio' name="rooms" value="4">
+                            <label for="room-4">4 Rooms</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="room-5" class='radio' name="rooms" value="5">
+                            <label for="room-5">5 Rooms</label>
+                        </div>
+                    </div>
+                    <div class="sidebar__options propertyDaysOnWebsite">
+                        <h3>Days on website</h3>
+                        <div class="select-group">
+                            <input type="radio" id="days-all" class='radio' name="days" value="9999999999999" checked>
+                            <label for="days-all">All</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="day-today" class='radio' name="days" value="0">
+                            <label for="day-today">Today</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="day-3" class='radio' name="days" value="3">
+                            <label for="day-3">3 days</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="day-10" class='radio' name="days" value="10">
+                            <label for="dat-10">10 days</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="day-30" class='radio' name="days" value="30">
+                            <label for="day-30">30 days</label>
+                        </div>
+                    </div>
+                    <div class="sidebar__options propertyFloorArea">
+                        <h3>Floor area</h3>
+                        <div class="select-group">
+                            <input type="radio" id="floor-all" class='radio' name="floorArea" value="99999999999"
+                                checked>
+                            <label for="floor-all">All</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="floor-50m2" class='radio' name="floorArea" value="50">
+                            <label for="floor-50m2">50+ m2</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="floor-75m2" class='radio' name="floorArea" value="75">
+                            <label for="floor-75m2">75+ m2</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="floor-100m2" class='radio' name="floorArea" value="100">
+                            <label for="floor-100m2">100+ m2</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="floor-150m2" class='radio' name="floorArea" value="150">
+                            <label for="floor-150m2">150+ m2</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="floor-250m2" class='radio' name="floorArea" value="250">
+                            <label for="floor-250m2">250+ m2</label>
+                        </div>
+                    </div>
+                    <div class="sidebar__options propertyPlotArea">
+                        <h3>Plot area</h3>
+                        <div class="select-group">
+                            <input type="radio" id="plot-all" class='radio' name="plot-area" value="99999999999"
+                                checked>
+                            <label for="plot-all">All</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="plot-250m2" class='radio' name="plot-area" value="250">
+                            <label for="plot-250m2">250+ m2</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="plot-500m2" class='radio' name="plot-area" value="500">
+                            <label for="plot-500m2">500+ m2</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="plot-1000m2" class='radio' name="plot-area" value="1000">
+                            <label for="plot-1000m2">1000+ m2</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="plot-2500m2" class='radio' name="plot-area" value="2500">
+                            <label for="plot-2500m2">2500+ m2</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="plot-5000m2" class='radio' name="plot-area" value="5000">
+                            <label for="plot-5000m2">5000+ m2</label>
+                        </div>
+                    </div>
+                    <div class="sidebar__options exteriorSpace">
+                        <h3>Exterior space</h3>
+                        <div class="select-group">
+                            <input type="checkbox" id="balcony" value="balcony">
+                            <label for="balcony">Balcony</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="checkbox" id="roof-terrace" value="roof-terrace">
+                            <label for="roof-terrace">Roof Terrace</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="checkbox" id="garden" value="garden">
+                            <label for="garden">Garden</label>
+                        </div>
+                    </div>
+                    <div class="sidebar__options propertyPlotArea">
+                        <h3>Type of construction</h3>
+                        <div class="select-group">
+                            <input type="radio" id="all-construction" class='radio' name="construction" value="all"
+                                checked>
+                            <label for="all-construction">All</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="new-construction" class='radio' name="construction" value="new">
+                            <label for="new-construction">New</label>
+                        </div>
+                        <div class="select-group">
+                            <input type="radio" id="resale-construction" class='radio' name="construction"
+                                value="resale">
+                            <label for="resale-construction">Resale</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <main class="properties">
+                <form class="sort-results">
+                    <h3>Sort the results</h3>
+                    <select class="sortBy">
+                        <option value="newest">Newest</option>
+                        <option value="oldest">Oldest</option>
+                        <option value="price-lowest">Price lowest</option>
+                        <option value="price-highest">Price highest</option>
+                        <option value="rooms-lowest">Rooms lowest</option>
+                        <option value="rooms-highest">Rooms Highest</option>
+                        <option value="floor-lowest">Floor area lowest</option>
+                        <option value="floor-highest">Floor area highest</option>
+                    </select>
+                </form>
+                <div class="properties-container">
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.js"></script>
+    <script src="scripts/ads.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+
+</html>

@@ -490,7 +490,7 @@ const renderAds = (adsArray) => {
             <div class="property-details">
                 <h3>${element.adress}</h3>
                 <p><span class="bold"><i class="fas fa-euro-sign"></i> ${(element.price).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')} </span></p>
-                <p><span class="bold"><i class="fas fa-map-marked-alt"></i> ${element.city} , ${element.postcode}</span></p>
+                <p><span class="bold"><i class="fas fa-map-marker-alt"></i> ${element.city} , ${element.postcode}</span></p>
                 <p><span class="bold">${element.rooms} rooms</span></p>
                 <p>Floor: <span class="bold">${element.floorArea} <sup>m2</sup></span></p>
                 <p>Plot: <span class="bold">${plotSize}</span></p>
@@ -514,13 +514,11 @@ renderAds(sorted);
 const slideRight = document.querySelector('.liked-right');
 const slideLeft = document.querySelector('.liked-left');
 if (likedAds[0]) {
-    const singleSavedWidth = document.querySelector('.saved-ad').offsetWidth;
     slideRight.addEventListener('click', () => {
-        // alert('works')
-        const slide = document.querySelector('.liked').scrollLeft += singleSavedWidth * 3;
+        document.querySelector('.liked').scrollLeft += 200;
     })
     slideLeft.addEventListener('click', () => {
-        const slide = document.querySelector('.liked').scrollLeft -= singleSavedWidth * 3;
+        document.querySelector('.liked').scrollLeft -= 200;
     })
 
 }

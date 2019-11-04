@@ -9,3 +9,35 @@
     padding: 2rem;
     margin-left: 2rem;
 }
+
+.landing {
+    width: 100vw;
+    height: calc(100vh - 6rem);
+    background: linear-gradient(rgba($color-primary, 0.8), rgba($color-primary-light, 0.5)), url(/media/img/landing-bg.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__text {
+        text-align: center;
+        margin-top: -5rem;
+        font-weight: 300;
+        color: white;
+        text-transform: uppercase;
+
+        &--heading {
+            font-size: 5rem;
+            font-weight: 300;
+            letter-spacing: 0.7rem;
+        }
+
+        &--text {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.3rem;
+            margin-top: 1rem;
+        }
+    }
+}
