@@ -36,6 +36,24 @@ const getSavedLikedAds = () => {
 }
 likedAds = getSavedLikedAds();
 
+let ads = [];
+// Save the ads to the Local Storage
+const saveAds = () => {
+    let adsAray = JSON.stringify(adsArr);
+    localStorage.setItem('ads', adsAray);
+}
+const getSavedAds = () => {
+    let getAds = localStorage.getItem('ads');
+    if (getAds === null) {
+        return [];
+    } else {
+        let adsJSON = JSON.parse(getAds)
+        return adsJSON
+    }
+}
+ads = getSavedAds();
+console.log(ads)
+
 // Function which filters the ads (yet to be improved)
 const filterAds = () => {
     const priceFilter = adsArr.filter(function (item) {
@@ -259,12 +277,15 @@ const likeAd = (e) => {
     let adId = e.target.parentNode.parentNode.id
     let sorted = sortResults(filterAds())
     let liked = sorted.find((ad) => ad.id === adId)
+    let adsJSON = adsArr.find((ad) => ad.id === adId)
+    console.log(ads)
 
     let check = likedAds.find((ad) => {
         return ad.id === liked.id
     })
     if (!check) {
         liked.liked = true;
+        adsJSON.liked = true;
         console.log(e.target);
         e.target.textContent = "Dislike"
         e.target.style.backgroundColor = "#b03c3c"
@@ -277,10 +298,10 @@ const likeAd = (e) => {
             return ad.id === liked.id
         })
         liked.liked = false;
-        console.log(liked);
+        adsJSON.liked = false;
+        console.log(adsJSON);
         likedAds.splice(indexRemove, 1)
     }
-
     saveLikedAds();
     getSavedLikedAds();
     renderLikedAds()
@@ -331,9 +352,12 @@ const removeLikedAd = (e) => {
     let indexToRemove = likedAds.findIndex(ad => ad.id === removeLikedId);
     console.log(indexToRemove)
     likedAds.splice(indexToRemove, 1);
+    saveAds();
+    getSavedAds();
     saveLikedAds();
     getSavedLikedAds();
     renderLikedAds();
+    reRenderDOM();
 }
 
 const emptyDom = () => {
@@ -341,6 +365,8 @@ const emptyDom = () => {
     container.innerHTML = '';
 };
 const reRenderDOM = (e) => {
+    saveAds();
+    getSavedAds();
     emptyDom();
     setFilters(e);
     filterAds();
@@ -378,7 +404,9 @@ const renderAds = (adsArray) => {
         ad.className = 'property';
         ad.id = element.id
 
-        let whenIsPublished = element.published.fromNow();
+
+        let publishedStringToObject = moment(element.published);
+        let whenIsPublished = publishedStringToObject.fromNow();
         let x = new moment()
         let inDays = moment.duration(x.diff(element.published)).asDays();
         let inDaysInt = parseInt(inDays);
@@ -401,7 +429,18 @@ const renderAds = (adsArray) => {
         likeButton.addEventListener('click', (e) => {
             likeAd(e);
         })
-
+        let test = likedAds.filter((ad) => {
+            return element.id === ad.id
+        })
+        if (test[0]) {
+            likeButton.textContent = "Dislike"
+            likeButton.style.backgroundColor = "#b03c3c"
+            element.liked = true;
+        } else {
+            likeButton.textContent = "Like"
+            likeButton.style.backgroundColor = ""
+            element.liked = false;
+        }
         const buttonContainer = document.createElement('div')
         buttonContainer.className = "property-buttons"
 
