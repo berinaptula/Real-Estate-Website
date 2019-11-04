@@ -43,6 +43,22 @@
         p {
             font-size: 1.1rem;
         }
+
+        .utilities {
+            display: flex;
+
+            &>*:not(:first-child) {
+                margin-left: 1rem;
+            }
+        }
+
+        .check {
+            color: green;
+        }
+
+        .cross {
+            color: $color-red-dark;
+        }
     }
 
     &-buttons {

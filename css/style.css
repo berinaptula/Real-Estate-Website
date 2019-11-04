@@ -225,6 +225,14 @@ body {
       font-size: 1.7rem; }
     .property-details p {
       font-size: 1.1rem; }
+    .property-details .utilities {
+      display: flex; }
+      .property-details .utilities > *:not(:first-child) {
+        margin-left: 1rem; }
+    .property-details .check {
+      color: green; }
+    .property-details .cross {
+      color: #b03c3c; }
   .property-buttons {
     align-self: stretch;
     display: flex;

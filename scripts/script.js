@@ -455,30 +455,32 @@ const renderAds = (adsArray) => {
 
         if (inDaysInt >= 1) {
             published = whenIsPublished;
-        }
-        if (inDaysInt < 1) {
+        } else {
             published = "Today"
         }
+        let plotSize = 0;
         if (element.plotArea === null) {
-            element.plotArea = "Not specificed for this type of property"
+            plotSize = "Not specificed for this type of property"
+        } else {
+            plotSize = `${element.plotArea} <sup>m2</sup>`
         }
         let hasBalcony = '';
         let hasRoofTerrace = '';
         let hasGarden = '';
         if (element.balcony) {
-            hasBalcony = 'Yes'
+            hasBalcony = '<i class="fas fa-check check"></i>'
         } else {
-            hasBalcony = 'No'
+            hasBalcony = '<i class="fas fa-times cross"></i>'
         }
         if (element.roofTerrace) {
-            hasRoofTerrace = 'Yes'
+            hasRoofTerrace = '<i class="fas fa-check check"></i>'
         } else {
-            hasRoofTerrace = 'No'
+            hasRoofTerrace = '<i class="fas fa-times cross"></i>'
         }
         if (element.garden) {
-            hasGarden = 'Yes'
+            hasGarden = '<i class="fas fa-check check"></i>'
         } else {
-            hasGarden = "No"
+            hasGarden = '<i class="fas fa-times cross"></i>'
         }
         ad.innerHTML =
             `
@@ -487,16 +489,17 @@ const renderAds = (adsArray) => {
             </div>
             <div class="property-details">
                 <h3>${element.adress}</h3>
-                <p>Price : <span class="bold">$${element.price}</span></p>
-                <p>City : <span class="bold">${element.city}</span></p>
-                <p>Postcode : <span class="bold">${element.postcode}</span></p>
-                <p>Floor area : <span class="bold">${element.floorArea}</span></p>
-                <p>Plot area : <span class="bold">${element.plotArea}</span></p>
-                <p>Rooms : <span class="bold">${element.rooms}</span></p>
+                <p><span class="bold"><i class="fas fa-euro-sign"></i> ${element.price}</span></p>
+                <p><span class="bold"><i class="fas fa-map-marked-alt"></i> ${element.city} , ${element.postcode}</span></p>
+                <p><span class="bold">${element.rooms} rooms</span></p>
+                <p>Floor: <span class="bold">${element.floorArea} <sup>m2</sup></span></p>
+                <p>Plot: <span class="bold">${plotSize}</span></p>
                 <p>Construction type : <span class="bold">${element.constructionType}</span></p>
-                <p>Balcony : <span class="bold">${hasBalcony}</span></p>
-                <p>Roof terrace : <span class="bold">${hasRoofTerrace}</p>
-                <p>Garden : <span class="bold">${hasGarden}</span></p>
+                <div class="utilities">
+                    <p>Balcony : <span class="bold">${hasBalcony}</span></p>
+                    <p>Roof terrace : <span class="bold">${hasRoofTerrace}</p>
+                    <p>Garden : <span class="bold">${hasGarden}</span></p>
+                </div>
                 <p>Published : <span class="bold">${published}</span></p>
             </div>
             `
