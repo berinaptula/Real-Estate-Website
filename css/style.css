@@ -172,7 +172,6 @@ body {
   margin-left: 2rem; }
 
 .landing__header {
-  width: 100vw;
   height: calc(100vh - 6rem);
   background: linear-gradient(rgba(245, 141, 13, 0.8), rgba(244, 165, 70, 0.5)), url(/media/img/landing-bg.jpg);
   background-position: center;
@@ -400,6 +399,8 @@ body {
   padding: 20rem 0;
   clip-path: polygon(0 20%, 100% 0%, 100% 80%, 0% 100%);
   box-shadow: 0 0rem 4rem black; }
+  .recent-listings .container {
+    width: 100%; }
   .recent-listings__text {
     text-align: center;
     width: 80%;
@@ -418,7 +419,7 @@ body {
   display: flex;
   justify-content: space-between; }
   .listings .listing {
-    width: 18%;
+    width: 22%;
     overflow: hidden;
     padding: 0rem;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
@@ -433,10 +434,13 @@ body {
       transform: scale(1.05);
       box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.3); }
     .listings .listing__image {
+      width: 100%;
       margin-bottom: 1rem; }
       .listings .listing__image img {
         height: 100%;
-        overflow: hidden; }
+        overflow: hidden;
+        object-fit: cover;
+        object-position: center; }
     .listings .listing__details {
       text-align: center;
       padding: 1rem; }
