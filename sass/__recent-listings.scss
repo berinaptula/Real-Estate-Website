@@ -4,8 +4,14 @@
     justify-content: space-between;
     flex-direction: column;
     margin: 0;
-    background: linear-gradient(to right bottom, rgba($color-primary, 1), rgba($color-primary-light, 0.5));
-    padding: 10rem 0;
+    background: linear-gradient(to right bottom, rgba($color-primary, 1), rgba($color-primary-light, 0.5)), url(/media/img/recents-bg.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 20rem 0;
+    clip-path: polygon(0 20%, 100% 0%, 100% 80%, 0% 100%);
+    box-shadow: 0 0rem 4rem rgba($color: #000000, $alpha: 1.0);
 
     &__text {
         text-align: center;
@@ -31,6 +37,7 @@
     display: flex;
     justify-content: space-between;
 
+
     .listing {
         width: 18%;
         overflow: hidden;
@@ -42,6 +49,13 @@
         align-items: center;
         border-radius: 1rem;
         background-color: rgb(244, 244, 244);
+        transition: all 0.4s;
+
+
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2rem 4rem rgba($color: #000000, $alpha: 0.3);
+        }
 
         &__image {
             img {
@@ -55,6 +69,54 @@
         &__details {
             text-align: center;
 
+            padding: 1rem;
+
+            h3 {
+                margin-bottom: 1rem;
+                font-size: 1.6rem;
+                color: $color-primary;
+            }
+
+            p {
+                margin-bottom: 2rem;
+                font-size: 1.4rem;
+                font-weight: bold;
+            }
+
+            button {
+                cursor: pointer;
+                transition: all 0.2s;
+                outline: none;
+                border: none;
+                margin-bottom: 1rem;
+
+                &:hover {
+                    transform: scale(1.1) translateY(0);
+                }
+
+                &:active {
+                    background-color: $color-primary-light;
+                    transform: scale(1.1) translateY(2px);
+
+                }
+
+                a {
+                    color: white;
+                    background-color: $color-primary;
+                    padding: 1rem 2rem;
+                    border-radius: 1rem;
+                    text-decoration: none;
+                    box-shadow: 0 0.3rem 0.5rem rgba($color: #000000, $alpha: 0.3);
+
+                    &:hover {
+                        background-color: $color-primary-light;
+                    }
+
+                    &:active {
+                        box-shadow: 0 0.5rem 1rem rgba($color: #000000, $alpha: 0.3);
+                    }
+                }
+            }
         }
     }
 }

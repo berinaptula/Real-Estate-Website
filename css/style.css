@@ -170,7 +170,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-attachment: fixed; }
+  background-attachment: fixed;
+  clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%); }
 
 .landing__text {
   text-align: center;
@@ -381,8 +382,14 @@ body {
   justify-content: space-between;
   flex-direction: column;
   margin: 0;
-  background: linear-gradient(to right bottom, #f58d0d, rgba(244, 165, 70, 0.5));
-  padding: 10rem 0; }
+  background: linear-gradient(to right bottom, #f58d0d, rgba(244, 165, 70, 0.5)), url(/media/img/recents-bg.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 20rem 0;
+  clip-path: polygon(0 20%, 100% 0%, 100% 80%, 0% 100%);
+  box-shadow: 0 0rem 4rem black; }
   .recent-listings__text {
     text-align: center;
     width: 80%;
@@ -410,11 +417,46 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 1rem;
-    background-color: #f4f4f4; }
+    background-color: #f4f4f4;
+    transition: all 0.4s; }
+    .listings .listing:hover {
+      transform: scale(1.05);
+      box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.3); }
     .listings .listing__image {
       margin-bottom: 1rem; }
       .listings .listing__image img {
         height: 100%;
         overflow: hidden; }
     .listings .listing__details {
-      text-align: center; }
+      text-align: center;
+      padding: 1rem; }
+      .listings .listing__details h3 {
+        margin-bottom: 1rem;
+        font-size: 1.6rem;
+        color: #f58d0d; }
+      .listings .listing__details p {
+        margin-bottom: 2rem;
+        font-size: 1.4rem;
+        font-weight: bold; }
+      .listings .listing__details button {
+        cursor: pointer;
+        transition: all 0.2s;
+        outline: none;
+        border: none;
+        margin-bottom: 1rem; }
+        .listings .listing__details button:hover {
+          transform: scale(1.1) translateY(0); }
+        .listings .listing__details button:active {
+          background-color: #f4a546;
+          transform: scale(1.1) translateY(2px); }
+        .listings .listing__details button a {
+          color: white;
+          background-color: #f58d0d;
+          padding: 1rem 2rem;
+          border-radius: 1rem;
+          text-decoration: none;
+          box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.3); }
+          .listings .listing__details button a:hover {
+            background-color: #f4a546; }
+          .listings .listing__details button a:active {
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3); }

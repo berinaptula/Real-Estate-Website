@@ -1,7 +1,7 @@
 const adsArr = [{
         type: 'apartment',
         price: 318000,
-        adress: "Zilvermeeuw 5111111111111",
+        adress: "Zilvermeeuw 51",
         published: moment().subtract(21, 'days'),
         city: 'Hoogvliet Rotterdam',
         postcode: '3192 PD',
@@ -134,7 +134,7 @@ const adsArr = [{
     {
         type: 'apartment',
         price: 259000,
-        adress: "Drinkwaterweg 425XDDDDDD",
+        adress: "Drinkwaterweg 425",
         published: moment().subtract(3, 'days'),
         city: 'Rotterdam',
         postcode: '3063 VD',
