@@ -8,18 +8,25 @@ $color-red-dark : #b03c3c;
 }
 
 .h2 {
-    font-size: 3rem;
+    font-size: 5rem;
     letter-spacing: 0.7rem;
     color: $color-primary;
     text-align: center;
+    font-weight: 300;
 }
 
 .h3 {
-    font-size: 2rem;
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: 0.3rem;
 }
 
 .p {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+}
+
+.white {
+    color: white;
 }
 
 *,
