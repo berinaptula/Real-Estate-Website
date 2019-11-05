@@ -47,11 +47,44 @@
 
     }
 
+    &__button {
+        align-self: flex-start;
+        display: block;
+        // padding: 1rem;
+        margin-top: 1rem;
+        transition: all 0.2s;
+        transform-origin: 0% 50%;
+
+        &--link,
+        &--link:visited,
+        &--link:active {
+            // padding: 4rem;
+            border: none;
+            outline: none;
+            padding: 1rem 2rem;
+            background: rgb(232, 232, 232);
+            text-decoration: none;
+            color: black;
+            font-size: 1.5rem;
+            border-radius: 0.8rem;
+            box-shadow: 0 0.5rem 1rem rgba($color: #000000, $alpha: 0.3);
+        }
+
+        &--link:hover {
+            box-shadow: 0 0.8rem 1.5rem rgba($color: #000000, $alpha: 0.3);
+        }
+
+        &:hover {
+            transform: scale(1.05);
+            letter-spacing: 0.1rem;
+        }
+    }
+
     &__right {
         width: 50%;
         height: 100%;
         background: url(/media/img/about-us.jpg) center no-repeat;
         background-size: cover;
-        mix-blend-mode: screen;
+        mix-blend-mode: overlay;
     }
 }

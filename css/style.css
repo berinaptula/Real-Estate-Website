@@ -9,7 +9,7 @@
   font-weight: 300; }
 
 .h3 {
-  font-size: 3rem;
+  font-size: 2.8rem;
   font-weight: 400;
   letter-spacing: 0.3rem; }
 
@@ -548,9 +548,30 @@ body {
       .about-us__left--info p {
         font-size: 1.6rem;
         margin-bottom: 1.4rem; }
+  .about-us__button {
+    align-self: flex-start;
+    display: block;
+    margin-top: 1rem;
+    transition: all 0.2s;
+    transform-origin: 0% 50%; }
+    .about-us__button--link, .about-us__button--link:visited, .about-us__button--link:active {
+      border: none;
+      outline: none;
+      padding: 1rem 2rem;
+      background: #e8e8e8;
+      text-decoration: none;
+      color: black;
+      font-size: 1.5rem;
+      border-radius: 0.8rem;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3); }
+    .about-us__button--link:hover {
+      box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.3); }
+    .about-us__button:hover {
+      transform: scale(1.05);
+      letter-spacing: 0.1rem; }
   .about-us__right {
     width: 50%;
     height: 100%;
     background: url(/media/img/about-us.jpg) center no-repeat;
     background-size: cover;
-    mix-blend-mode: screen; }
+    mix-blend-mode: overlay; }
