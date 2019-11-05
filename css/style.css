@@ -4,7 +4,11 @@
 .h2 {
   font-size: 3rem;
   letter-spacing: 0.7rem;
-  color: #f58d0d; }
+  color: #f58d0d;
+  text-align: center; }
+
+.h3 {
+  font-size: 2rem; }
 
 .p {
   font-size: 1.4rem; }
@@ -460,3 +464,46 @@ body {
             background-color: #f4a546; }
           .listings .listing__details button a:active {
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3); }
+
+.workers {
+  display: flex;
+  margin-top: 7rem; }
+
+.worker {
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+  margin: 0 3rem;
+  border-radius: 2rem;
+  margin-bottom: 3rem;
+  padding: 4rem 3rem;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, rgba(245, 141, 13, 0.8), #f4a546);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+  transition: all 0.4s; }
+  .worker:hover {
+    transform: translateY(-20px) scale(1.03);
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.3); }
+  .worker__photo {
+    width: 25rem;
+    height: 35rem;
+    background-color: red;
+    border-radius: 2rem;
+    overflow: hidden; }
+    .worker__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top; }
+  .worker__details {
+    margin-top: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column; }
+    .worker__details--name {
+      color: white; }
+    .worker__details--position {
+      color: #4b4b4b;
+      font-weight: 600;
+      padding-bottom: 1rem; }
