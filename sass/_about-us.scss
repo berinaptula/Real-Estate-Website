@@ -10,6 +10,10 @@
         top: 10rem;
         z-index: 2;
         transform: translateX(-50%);
+
+        @media only screen and (max-width:$bp-sm) {
+            top: 13rem;
+        }
     }
 
     &__content {
@@ -28,6 +32,12 @@
         // padding: 25rem 10%;
         text-align: left;
 
+        @media only screen and (max-width:$bp-sm) {
+            width: 100%;
+            background: linear-gradient(to right bottom, rgba($color-primary, 0.7), rgba($color-primary-light, 0.8)), url(/media/img/about-us.jpg) center no-repeat;
+            background-size: cover;
+        }
+
         &--info {
             // height: 100%;
             display: flex;
@@ -36,6 +46,10 @@
             height: 50%;
             justify-content: center;
             transform: translateY(8rem);
+
+            @media only screen and (max-width:$bp-sm) {
+                width: 80%;
+            }
 
             h2 {
                 margin-bottom: 3rem;
@@ -89,5 +103,9 @@
         background: url(/media/img/about-us.jpg) center no-repeat;
         background-size: cover;
         mix-blend-mode: overlay;
+
+        @media only screen and (max-width:$bp-sm) {
+            width: 0%;
+        }
     }
 }

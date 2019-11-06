@@ -35,6 +35,14 @@
             font-size: 5rem;
             font-weight: 300;
             letter-spacing: 0.7rem;
+
+            @media only screen and (max-width:$bp-lg) {
+                font-size: 4rem;
+            }
+
+            @media only screen and (max-width:$bp-lg) {
+                font-size: 3rem;
+            }
         }
 
         &--text {
@@ -53,6 +61,11 @@
     flex-direction: row;
     margin: 10rem 0;
 
+    @media only screen and (max-width:$bp-sm) {
+        flex-direction: column;
+        margin: 3rem 0;
+    }
+
     .feature {
         text-align: center;
         width: 33.3333333%;
@@ -61,6 +74,14 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        @media only screen and (max-width:$bp-sm) {
+            width: 80%;
+
+            &:not(:last-child) {
+                margin-bottom: 3rem;
+            }
+        }
 
         &__icon {
             font-size: 10rem;
@@ -81,6 +102,10 @@
 
         &__text {
             width: 80%;
+
+            @media only screen and (max-width:$bp-sm) {
+                width: 100%;
+            }
 
             &--heading {
                 margin-bottom: 1.5rem;

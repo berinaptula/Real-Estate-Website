@@ -3,6 +3,11 @@ $color-primary : #f58d0d;
 $color-primary-light : #f4a546;
 $color-red-dark : #b03c3c;
 
+$bp-xl : 1250px;
+$bp-lg : 1065px;
+$bp-md : 900px;
+$bp-sm : 650px;
+
 .bold {
     font-weight: 600;
 }
@@ -13,6 +18,11 @@ $color-red-dark : #b03c3c;
     color: $color-primary;
     text-align: center;
     font-weight: 300;
+
+    @media only screen and (max-width:$bp-sm) {
+        font-size: 3rem;
+        font-weight: 600;
+    }
 }
 
 .h3 {
@@ -29,6 +39,7 @@ $color-red-dark : #b03c3c;
     color: white;
 }
 
+
 *,
 *::before,
 *::after {
@@ -41,6 +52,18 @@ html {
     box-sizing: border-box;
     font-size: 62.5%;
     scroll-behavior: smooth;
+
+    @media only screen and (max-width:$bp-xl) {
+        font-size: 57.5%;
+    }
+
+    @media only screen and (max-width:$bp-md) {
+        font-size: 51.5%;
+    }
+
+    @media only screen and (max-width:$bp-sm) {
+        font-size: 48%;
+    }
 }
 
 body {
