@@ -38,6 +38,7 @@
     <div class="container">
         <div class="landing-page">
             <div class="sidebar">
+                <button class="sidebar__toggle"><i class="fas fa-angle-left"></i></button>
                 <form class="search">
                     <div class="propertySearch">
                         <label for="search">Search</label>
@@ -46,7 +47,7 @@
                 </form>
                 <form class="filters">
                     <div class="sidebar__options propertyPrice">
-                        <h3>Property price</h3>
+                        <h3 class="sidebar__options--name">Property price</h3>
                         <div class="sidebar__options--block">
                             <label for="min-price">From</label>
                             <select class="min-price" name="min-price">
@@ -71,7 +72,7 @@
                         </div>
                     </div>
                     <div class="sidebar__options propertyType">
-                        <h3>Property type</h3>
+                        <h3 class="sidebar__options--name">Property type</h3>
                         <div class="select-group">
                             <input type="radio" id="type-all" class='radio' name="type" value="all" checked>
                             <label for="type-all">All</label>
@@ -86,7 +87,7 @@
                         </div>
                     </div>
                     <div class="sidebar__options propertyRooms">
-                        <h3>Rooms</h3>
+                        <h3 class="sidebar__options--name">Rooms</h3>
                         <div class="select-group">
                             <input type="radio" id="rooms-all" class='radio' name="rooms" value="999999999" checked>
                             <label for="rooms-all">All</label>
@@ -113,7 +114,7 @@
                         </div>
                     </div>
                     <div class="sidebar__options propertyDaysOnWebsite">
-                        <h3>Days on website</h3>
+                        <h3 class="sidebar__options--name">Days on website</h3>
                         <div class="select-group">
                             <input type="radio" id="days-all" class='radio' name="days" value="9999999999999" checked>
                             <label for="days-all">All</label>
@@ -136,7 +137,7 @@
                         </div>
                     </div>
                     <div class="sidebar__options propertyFloorArea">
-                        <h3>Floor area</h3>
+                        <h3 class="sidebar__options--name">Floor area</h3>
                         <div class="select-group">
                             <input type="radio" id="floor-all" class='radio' name="floorArea" value="99999999999"
                                 checked>
@@ -164,7 +165,7 @@
                         </div>
                     </div>
                     <div class="sidebar__options propertyPlotArea">
-                        <h3>Plot area</h3>
+                        <h3 class="sidebar__options--name">Plot area</h3>
                         <div class="select-group">
                             <input type="radio" id="plot-all" class='radio' name="plot-area" value="99999999999"
                                 checked>
@@ -192,7 +193,7 @@
                         </div>
                     </div>
                     <div class="sidebar__options exteriorSpace">
-                        <h3>Exterior space</h3>
+                        <h3 class="sidebar__options--name">Exterior space</h3>
                         <div class="select-group">
                             <input type="checkbox" id="balcony" value="balcony">
                             <label for="balcony">Balcony</label>
@@ -207,7 +208,7 @@
                         </div>
                     </div>
                     <div class="sidebar__options propertyPlotArea">
-                        <h3>Type of construction</h3>
+                        <h3 class="sidebar__options--name">Type of construction</h3>
                         <div class="select-group">
                             <input type="radio" id="all-construction" class='radio' name="construction" value="all"
                                 checked>

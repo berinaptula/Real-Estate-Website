@@ -57,7 +57,7 @@ body {
   background: #f58d0d;
   padding: 0;
   margin: 0;
-  color: white;
+  color: #ffffff;
   height: 6rem; }
   .top-bar__container {
     display: flex;
@@ -175,7 +175,8 @@ body {
     margin: 0 1rem; }
 
 .landing-page {
-  display: flex; }
+  display: flex;
+  position: relative; }
 
 .properties {
   display: flex;
@@ -183,6 +184,9 @@ body {
   width: 100%;
   padding: 2rem;
   margin-left: 2rem; }
+  @media only screen and (max-width: 650px) {
+    .properties {
+      margin-left: 0; } }
 
 .landing__header {
   height: calc(100vh - 6rem);
@@ -269,12 +273,40 @@ body {
   flex-direction: column;
   margin-top: 2rem;
   width: 25%; }
+  @media only screen and (max-width: 650px) {
+    .sidebar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      margin-top: 0rem;
+      width: 50%;
+      background-color: #cdcdcd;
+      box-shadow: 2rem 0 3rem rgba(0, 0, 0, 0.3);
+      min-height: calc(100vh - 6rem);
+      justify-content: space-evenly; } }
+  @media only screen and (max-width: 375px) {
+    .sidebar {
+      width: 80%; } }
+  .sidebar__toggle {
+    position: absolute;
+    top: 0;
+    right: -41.5px;
+    padding: 2rem;
+    background-color: #f4a546;
+    color: white;
+    border: none;
+    outline: none; }
+    .sidebar__toggle:active {
+      background-color: #f7bc76; }
   .sidebar__options {
     display: flex;
     flex-direction: column;
     padding: 1rem; }
     .sidebar__options:not(:last-child) {
       border-bottom: 1px solid #919191; }
+    .sidebar__options--name {
+      font-size: 1.8rem; }
     .sidebar__options--block {
       display: flex;
       flex-direction: column; }
@@ -282,6 +314,9 @@ body {
     display: flex;
     margin: 0.3rem;
     font-size: 1.4rem; }
+    @media only screen and (max-width: 650px) {
+      .sidebar .select-group {
+        font-size: 2rem; } }
     .sidebar .select-group label {
       margin-left: 0.7rem; }
   .sidebar .propertySearch {
@@ -303,6 +338,10 @@ body {
       margin-bottom: 1rem; }
     .sidebar .propertyPrice label {
       font-size: 1.4rem; }
+
+.hidden {
+  display: none;
+  width: 0%; }
 
 .property {
   display: flex;
