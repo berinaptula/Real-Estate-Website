@@ -13,6 +13,21 @@
     @media only screen and (max-width:$bp-sm) {
         margin-left: 0;
     }
+
+    .sort-results {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        @media only screen and (max-width:$bp-sm) {
+            align-items: flex-end;
+        }
+
+        label {
+            text-align: center;
+        }
+    }
 }
 
 .landing {

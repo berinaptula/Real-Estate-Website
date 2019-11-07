@@ -557,5 +557,4 @@ toggleSidebarBtn.addEventListener('click', (e) => {
 window.addEventListener('resize', () => {
     innerWidth > 650 ? sidebarContent.classList.remove('hidden') : sidebarContent.classList.add('hidden')
     innerWidth > 650 ? sidebar.classList.remove('width') : sidebar.classList.add('width')
-    console.log(innerWidth);
 })

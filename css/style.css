@@ -187,6 +187,16 @@ body {
   @media only screen and (max-width: 650px) {
     .properties {
       margin-left: 0; } }
+  .properties .sort-results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; }
+    @media only screen and (max-width: 650px) {
+      .properties .sort-results {
+        align-items: flex-end; } }
+    .properties .sort-results label {
+      text-align: center; }
 
 .landing__header {
   height: calc(100vh - 6rem);
@@ -364,15 +374,25 @@ body {
   transition: all 0.2s;
   overflow: hidden;
   border: 1px solid #f58d0d; }
+  @media only screen and (max-width: 650px) {
+    .property {
+      flex-wrap: wrap; } }
   .property:hover {
     transform: scale(1.02);
     box-shadow: 0 0.6rem 1.3rem rgba(0, 0, 0, 0.3); }
   .property-photo {
-    width: 33%;
-    align-self: stretch; }
+    width: 20rem;
+    align-self: stretch;
+    min-height: 100%;
+    display: block;
+    overflow: hidden; }
+    @media only screen and (max-width: 650px) {
+      .property-photo {
+        width: 100%; } }
     .property-photo img {
       width: 100%;
       object-fit: cover;
+      object-position: center;
       height: 100%; }
   .property-details {
     align-self: stretch;
@@ -382,14 +402,27 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around; }
+    @media only screen and (max-width: 650px) {
+      .property-details {
+        margin-left: 1rem; } }
     .property-details h3 {
-      font-size: 1.7rem; }
+      font-size: 1.7rem;
+      margin-bottom: 1rem; }
     .property-details p {
-      font-size: 1.1rem; }
+      font-size: 1.4rem; }
+      @media only screen and (max-width: 650px) {
+        .property-details p {
+          margin: 0.25rem 0; } }
     .property-details .utilities {
       display: flex; }
       .property-details .utilities > *:not(:first-child) {
         margin-left: 1rem; }
+        @media only screen and (max-width: 900px) {
+          .property-details .utilities > *:not(:first-child) {
+            margin-left: 0; } }
+      @media only screen and (max-width: 900px) {
+        .property-details .utilities {
+          flex-direction: column; } }
     .property-details .check {
       color: green; }
     .property-details .cross {
