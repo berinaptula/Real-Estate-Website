@@ -1,3 +1,6 @@
+import adsArr from "./ads"
+import moment from 'moment'
+
 // Default filters for ads. (Currently testing purposes)
 var filters = {
     type: 'all',

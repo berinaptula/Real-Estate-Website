@@ -192,3 +192,7 @@ const adsArr = [{
     },
 
 ]
+export {
+    adsArr as
+    default
+}
