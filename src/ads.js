@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 const adsArr = [{
         type: 'apartment',
         price: 318000,
