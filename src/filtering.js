@@ -1,6 +1,8 @@
 import adsArr from "./ads"
 import moment from 'moment'
 
+
+// The initial filters for the properties
 var filters = {
     type: 'all',
     price: 0,
@@ -14,14 +16,13 @@ var filters = {
     rooms: 99999999,
     constructionType: 'all',
 };
+// Checkbox filters for balcony, garden and roof terrace
 var checkFilters = {
     balcony: false,
     garden: false,
     roofTerrace: false
 }
-
-
-// Function which filters the ads 
+// Function which filters the ads (quick solution, will be refined)
 const filterAds = () => {
     const priceFilter = adsArr.filter(function (item) {
         if (filters.price <= item.price && filters.priceMax >= item.price) {
@@ -51,10 +52,10 @@ const filterAds = () => {
         }
     })
 
-
     const daysSincePublishedFilter = roomsFilter.filter((item) => {
-        var x = new moment()
-        var inDays = moment.duration(x.diff(item.published)).asDays();
+        // Returns the published value as days only
+        var now = new moment()
+        var inDays = moment.duration(now.diff(item.published)).asDays();
         var inDaysInt = parseInt(inDays);
         if (filters.published === null) {
             return true
@@ -93,8 +94,9 @@ const filterAds = () => {
             return true;
         }
     })
-    const finalResult = constructionFilter;
 
+    const finalResult = constructionFilter;
+    // If nothing matches the filters, empty the container and display a message "No matching properties"
     if (finalResult.length === 0) {
         const propertiesContainer = document.querySelector('.properties-container')
         propertiesContainer.innerHTML = "<h2 class='no-result'>No matching properties</h2>"
@@ -130,24 +132,12 @@ const setFilters = (e) => {
 
 
     // Balcony, Garden and Roof terrace filters
-    if (document.getElementById('balcony').checked) {
-        checkFilters.balcony = true;
-    } else {
-        checkFilters.balcony = false;
-    }
-    if (document.getElementById('roof-terrace').checked) {
-        checkFilters.roofTerrace = true;
-    } else {
-        checkFilters.roofTerrace = false;
-    }
-    if (document.getElementById('garden').checked) {
-        checkFilters.garden = true;
-    } else {
-        checkFilters.garden = false;
-    }
+    document.getElementById('balcony').checked ? checkFilters.balcony = true : checkFilters.balcony = false
+    document.getElementById('roof-terrace').checked ? checkFilters.roofTerrace = true : checkFilters.roofTerrace = false
+    document.getElementById('garden').checked ? checkFilters.garden = true : checkFilters.garden = false
+
+    // Construction type filter
     filters.constructionType = document.querySelector('input[name="construction"]:checked').value;
-
-
 };
 
 export {
