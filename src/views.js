@@ -49,6 +49,10 @@ const renderLikedAds = () => {
                 // If clicked, get the ID of the clicked ad, and change the url to that particular path with #id
                 let id = e.target.parentNode.parentNode.id
                 location.assign(`/ad.html#${id}`)
+                // Reload the page to re-render the the correct ad
+                if (location.href.includes('ad.html')) {
+                    location.reload()
+                }
             })
             // The container of saved ad
             savedAdDOM.classList = 'saved-ad'
@@ -228,10 +232,72 @@ const displayLiked = () => {
         }
     })
 }
+const renderAd = (adFound) => {
+    const adress = document.querySelector('.adress');
+    const city = document.querySelector('.city');
+    const postcode = document.querySelector('.postcode');
+    const floorArea = document.querySelector('.floorArea');
+    const plotArea = document.querySelector('.plotArea')
+    const rooms = document.querySelector('.rooms');
+    const constructionType = document.querySelector('.constructionType');
+    const balcony = document.querySelector('.balcony');
+    const roofTerrace = document.querySelector('.roofTerrace');
+    const garden = document.querySelector('.garden');
+    const publishedTime = document.querySelector('.published')
+    const img = document.querySelector('.photo')
+
+    let whenIsPublished = adFound.published.fromNow();
+    var x = new moment()
+    var inDays = moment.duration(x.diff(adFound.published)).asDays();
+    var inDaysInt = parseInt(inDays);
+    var published = '';
+
+    if (inDaysInt >= 1) {
+        published = whenIsPublished;
+    }
+    if (inDaysInt < 1) {
+        published = "Today"
+    }
+    if (adFound.plotArea === null) {
+        adFound.plotArea = "Not specificed for this type of property"
+    }
+    let hasBalcony = '';
+    let hasRoofTerrace = '';
+    let hasGarden = '';
+    if (adFound.balcony) {
+        hasBalcony = 'Yes'
+    } else {
+        hasBalcony = 'No'
+    }
+    if (adFound.roofTerrace) {
+        hasRoofTerrace = 'Yes'
+    } else {
+        hasRoofTerrace = 'No'
+    }
+    if (adFound.garden) {
+        hasGarden = 'Yes'
+    } else {
+        hasGarden = "No"
+    }
+
+    adress.innerHTML = `<span class="bold">${adFound.adress}</span>`
+    city.innerHTML = `City <span class="bold">${adFound.city}</span>`
+    postcode.innerHTML = `Postcode : <span class="bold">${adFound.postcode}</span>`
+    floorArea.innerHTML = `Floor area: <span class="bold">${adFound.floorArea}</span>`
+    plotArea.innerHTML = `Plot area : <span class="bold">${adFound.plotArea}</span>`
+    rooms.innerHTML = `Rooms : <span class="bold">${adFound.rooms}</span>`
+    constructionType.innerHTML = `Construction type : <span class="bold">${adFound.constructionType}</span>`
+    balcony.innerHTML = `Balcony : <span class="bold">${hasBalcony}</span>`
+    roofTerrace.innerHTML = `Roof terrace : <span class="bold">${hasRoofTerrace}</span>`
+    garden.innerHTML = `Garden : <span class="bold">${hasGarden}</span>`
+    publishedTime.innerHTML = `Published : <span class="bold">${published}</span>`
+    img.src = adFound.photo
+}
 
 // renderAds(adsArr)
 export {
     renderLikedAds,
     renderAds,
-    displayLiked
+    displayLiked,
+    renderAd
 }

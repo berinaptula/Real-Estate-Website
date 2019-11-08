@@ -13,16 +13,22 @@ import {
 
 const emptyDom = () => {
     const container = document.querySelector('.properties-container');
-    container.innerHTML = '';
+    // Empty the DOM only if we are in the "search.html" window/page
+    if (location.href.includes("search.html")) {
+        container.innerHTML = '';
+    }
 };
 const reRenderDOM = (e) => {
     saveAds();
     getSavedAds();
     emptyDom();
-    setFilters(e);
+    // Set filters and re-render ads only if we are in the "search.html" window/page
+    if (location.href.includes("search.html")) {
+        setFilters(e);
+        let sorted = sortResults(filterAds())
+        renderAds(sorted);
+    }
     filterAds();
-    let sorted = sortResults(filterAds())
-    renderAds(sorted);
 }
 export {
     reRenderDOM
