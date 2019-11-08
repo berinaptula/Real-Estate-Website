@@ -1,3 +1,20 @@
+import {
+    likedAds
+} from './store-ads'
+import {
+    likeAd,
+    removeLikedAd
+} from './liked-ads'
+import {
+    filterAds
+} from './filtering'
+import moment from 'moment'
+import {
+    sortResults
+} from './sorting'
+
+// let sorted = sortResults(filterAds())
+
 // Renders the ads to the DOM
 const renderLikedAds = () => {
     // Slider Buttons
@@ -193,3 +210,28 @@ const renderAds = (adsArray) => {
         container.append(ad);
     });
 };
+
+// Toggles(shows and hides) the Liked Section
+const displayLiked = () => {
+    const likedBar = document.querySelector('.liked-bar');
+    const showLikedBtn = document.querySelector('#show-liked');
+    let show = true;
+    showLikedBtn.addEventListener('click', () => {
+        if (show) {
+            showLikedBtn.style.backgroundColor = "#f4a546"
+            likedBar.style.display = "block"
+            show = false;
+        } else {
+            showLikedBtn.style.backgroundColor = ""
+            likedBar.style.display = "none"
+            show = true;
+        }
+    })
+}
+
+// renderAds(adsArr)
+export {
+    renderLikedAds,
+    renderAds,
+    displayLiked
+}

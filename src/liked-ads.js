@@ -1,3 +1,22 @@
+import {
+    saveAds,
+    getSavedAds,
+    likedAds,
+    saveLikedAds,
+    getSavedLikedAds,
+} from './store-ads'
+import {
+    renderLikedAds
+} from "./views"
+import adsArr from './ads'
+import sortResults from './sorting'
+import {
+    filterAds
+} from './filtering'
+import {
+    reRenderDOM
+} from './updateDOM'
+
 // Slider for the Liked section
 // Do this only if likedAds is not empty
 if (likedAds[0]) {
@@ -8,24 +27,6 @@ if (likedAds[0]) {
     })
     slideLeft.addEventListener('click', () => {
         document.querySelector('.liked').scrollLeft -= 200;
-    })
-}
-
-// Toggles(shows and hides) the Liked Section
-const displayLiked = () => {
-    const likedBar = document.querySelector('.liked-bar');
-    const showLikedBtn = document.querySelector('#show-liked');
-    let show = true;
-    showLikedBtn.addEventListener('click', () => {
-        if (show) {
-            showLikedBtn.style.backgroundColor = "#f4a546"
-            likedBar.style.display = "block"
-            show = false;
-        } else {
-            showLikedBtn.style.backgroundColor = ""
-            likedBar.style.display = "none"
-            show = true;
-        }
     })
 }
 // This function is used with an onclick event listener

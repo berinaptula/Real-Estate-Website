@@ -20,6 +20,7 @@ const getSavedLikedAds = () => {
         return likedAdsJSON
     }
 }
+likedAds = getSavedLikedAds();
 // Save the ads to the Local Storage
 const saveAds = () => {
     // Saves to local storage as a string. We can't save objects/arrays to local storage.
@@ -36,7 +37,10 @@ const getSavedAds = () => {
         return adsJSON
     }
 }
+ads = getSavedAds();
 export {
+    likedAds,
+    ads,
     saveLikedAds,
     getSavedLikedAds,
     saveAds,

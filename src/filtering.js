@@ -139,8 +139,10 @@ const setFilters = (e) => {
     // Construction type filter
     filters.constructionType = document.querySelector('input[name="construction"]:checked').value;
 };
+filterAds();
 
 export {
+    filters,
     filterAds,
     setFilters
 }

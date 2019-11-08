@@ -1,3 +1,7 @@
+import {
+    filterAds
+} from "./filtering"
+// let filtered = filter
 const sortResults = (filtered) => {
     let sortBy = document.querySelector('.sortBy').value;
     if (sortBy === 'newest') {
@@ -94,6 +98,8 @@ const sortResults = (filtered) => {
     }
 
 }
+// // We are sorting the results by the (imported) filters
+// sortResults(filterAds())
 export {
     sortResults as
     default
