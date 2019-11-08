@@ -1,10 +1,13 @@
 const path = require('path')
 
 module.exports = {
-    entry: ['babel-polyfill', './src/index.js'],
+    entry: {
+        search: ['babel-polyfill', './src/search.js'],
+        ad: ['babel-polyfill', './src/ad.js']
+    },
     output: {
         path: path.resolve(__dirname, 'public/scripts'),
-        filename: 'bundle.js'
+        filename: '[name]-bundle.js'
     },
     module: {
         rules: [{
