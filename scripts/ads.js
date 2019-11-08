@@ -172,7 +172,7 @@ const adsArr = [{
     {
         type: 'apartment',
         price: 685000,
-        adress: "Coolhaven 253 Garden n balcony",
+        adress: "Coolhaven 253",
         published: moment().subtract(11, 'days'),
         city: 'Rotterdam',
         postcode: '3011 WH',

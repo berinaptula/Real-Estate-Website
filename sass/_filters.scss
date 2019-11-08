@@ -43,10 +43,12 @@
         }
     }
 
+
     &__options {
         display: flex;
         flex-direction: column;
         padding: 1rem;
+        overflow-y: scroll;
 
         &:not(:last-child) {
             border-bottom: 1px solid rgb(145, 145, 145);

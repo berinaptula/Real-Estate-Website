@@ -460,7 +460,7 @@ const renderAds = (adsArray) => {
         }
         let plotSize = 0;
         if (element.plotArea === null) {
-            plotSize = "Not specificed for this type of property"
+            plotSize = "Not specificed"
         } else {
             plotSize = `${element.plotArea} <sup>m2</sup>`
         }
