@@ -249,6 +249,22 @@ body {
     font-weight: 300;
     letter-spacing: 0.3rem;
     margin-top: 1rem; }
+  .landing__text--button {
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 1rem;
+    border-radius: 15rem; }
+    .landing__text--button:hover {
+      background-color: rgba(255, 255, 255, 0.8); }
+  .landing__text--link, .landing__text--link:visited, .landing__text--link:active {
+    padding: 1.5rem 3rem;
+    color: #f58d0d;
+    text-transform: uppercase;
+    text-decoration: none; }
 
 .features {
   display: flex;
