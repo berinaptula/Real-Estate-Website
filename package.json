@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/berinaptula/Real-Estate-Website#readme",
   "dependencies": {
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "webpack-cli": "^3.3.10"
   }
 }
